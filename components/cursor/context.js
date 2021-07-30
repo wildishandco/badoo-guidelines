@@ -9,7 +9,7 @@ const CursorDispatchContext = createContext()
 
 const cursorReducer = (state, action) => {
   switch (action.type) {
-    case "CHANGE_CURSOR": {
+    case "UPDATE_CURSOR": {
       return {
         ...state,
         cursor: action.cursor,

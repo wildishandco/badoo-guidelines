@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useCursorDispatchContext, useCursorStateContext } from "./context"
 
 const CursorStyles = styled.div`
   width: 30px;
@@ -19,9 +20,19 @@ const CursorStyles = styled.div`
 
 export default function Cursor() {
   const cursorRef = React.useRef(null)
+  const dispatch = useCursorDispatchContext()
+  const { cursor } = useCursorStateContext()
 
   const handleMouseMove = (event) => {
     const { clientX, clientY } = event
+    const side = window.innerWidth / 2
+
+    if (clientX < side) {
+      dispatch({ type: "UPDATE_CURSOR", cursor: "left" })
+    } else if (clientX > side) {
+      dispatch({ type: "UPDATE_CURSOR", cursor: "right" })
+    }
+
     cursorRef.current.style.left = `${clientX}px`
     cursorRef.current.style.top = `${clientY}px`
   }
@@ -33,7 +44,7 @@ export default function Cursor() {
 
   return (
     <>
-      <CursorStyles ref={cursorRef} />
+      <CursorStyles ref={cursorRef}>{cursor}</CursorStyles>
     </>
   )
 }

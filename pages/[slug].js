@@ -1,12 +1,18 @@
-import Link from "next/link"
+import SideNavigation from "../components/SideNavigation"
 import Slices from "../components/slug-page/Slices"
+import Portal from "../components/Portal"
 import { request } from "../lib/datocms"
 
 export default function ContentPages({ page }) {
   return (
     <>
       <Slices data={page[0]?.content} title={page[0]?.title} />
-      <Link href="/">Go</Link>
+      <Portal>
+        <SideNavigation
+          previous={page[0]?.previousPage}
+          next={page[0]?.nextPage}
+        />
+      </Portal>
     </>
   )
 }
@@ -22,6 +28,24 @@ const PAGE_QUERY = `
 query PageQuery($slug: String!) {
   page: allPages(filter: {slug: {eq: $slug}}) {
     title
+    nextPage {
+      title
+      slug
+      content {
+        ... on HeroSectionRecord {
+          colourScheme
+        }
+      }
+    }
+    previousPage {
+      title
+      slug
+      content {
+        ... on HeroSectionRecord {
+          colourScheme
+        }
+      }
+    }
     content {
       ... on TextEditorPhraseRecord {
         _modelApiKey
@@ -54,6 +78,65 @@ query PageQuery($slug: String!) {
                   width
                   height
                   aspectRatio
+                }
+              }
+            }
+          }
+        }
+      }
+      ... on GridBlockRecord {
+        _modelApiKey
+        gridBlock {
+          ... on GridBlockFiveRecord {
+            _modelApiKey
+            content {
+              ... on ImageRecord {
+                image {
+                  responsiveImage(imgixParams: {auto: format, fit: crop}) {
+                    src
+                    title
+                    alt
+                    base64
+                    bgColor
+                    width
+                    height
+                    aspectRatio
+                  }
+                }
+              }
+              ... on TextRecord {
+                text
+              }
+              ... on VideoRecord {
+                video {
+                  url
+                }
+              }
+            }
+          }
+          ... on GridBlockThreeRecord {
+            _modelApiKey
+            content {
+              ... on ImageRecord {
+                image {
+                  responsiveImage(imgixParams: {auto: format, fit: crop}) {
+                    src
+                    title
+                    alt
+                    base64
+                    bgColor
+                    width
+                    height
+                    aspectRatio
+                  }
+                }
+              }
+              ... on TextRecord {
+                text
+              }
+              ... on VideoRecord {
+                video {
+                  url
                 }
               }
             }

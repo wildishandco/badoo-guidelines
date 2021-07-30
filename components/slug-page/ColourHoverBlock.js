@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const ColourHoverStyles = styled.section`
-  min-height: 100vh;
+  min-height: 95vh;
   width: 100%;
   position: relative;
   .colour-hover-inner {

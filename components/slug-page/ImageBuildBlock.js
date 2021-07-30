@@ -13,6 +13,7 @@ const ImagesContainer = styled.div`
   right: 0;
   bottom: 0;
   pointer-events: none;
+  z-index: 3;
 `
 
 export default function ImageBuildBlock({ s }) {

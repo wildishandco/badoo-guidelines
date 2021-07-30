@@ -40,6 +40,7 @@ const globalCss = css`
     right: 0;
     bottom: 0;
     pointer-events: none;
+    z-index: 10;
   }
 
   h1,
@@ -256,6 +257,40 @@ const globalCss = css`
   }
 
   /* End Colour Schemes */
+
+  /* Grid block global styles */
+
+  .fill-image {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+  }
+
+  .fill-video {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .grid-block-text-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid-block-text {
+    padding: 20px;
+    font-size: 5vw;
+    line-height: 1.25;
+  }
+
+  /* End Grid block global styles */
 `
 
 export default globalCss

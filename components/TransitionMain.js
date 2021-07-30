@@ -16,23 +16,26 @@ export default function TransitionMain({ children }) {
 
   function exit(node) {
     gsap.set(node, {
+      onComplete: () => {
+        gsap.to(node, {
+          duration: 1,
+          xPercent: cursor === "left" ? 100 : -100,
+        })
+      },
       css: {
         position: "fixed",
-        top: 0,
         left: 0,
+        bottom: 0,
         minWidth: "100%",
+        overflow: "hidden",
       },
-    })
-    gsap.to(node, {
-      duration: 1,
-      xPercent: cursor === "left" ? 100 : -100,
     })
   }
 
   return (
     <TransitionGroup className="transition-group-wrapper">
       <Transition
-        key={router.pathname}
+        key={router.asPath}
         timeout={1000}
         in={true}
         onEnter={enter}
@@ -40,7 +43,7 @@ export default function TransitionMain({ children }) {
         mountOnEnter={true}
         unmountOnExit={true}
       >
-        <main style={{ border: "blue 3px dotted" }}>{children}</main>
+        <main style={{ minHeight: "100vh" }}>{children}</main>
       </Transition>
     </TransitionGroup>
   )
