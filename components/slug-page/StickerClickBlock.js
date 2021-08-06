@@ -73,8 +73,6 @@ export default function StickerClickBlock({ s }) {
   function handleMouseMove(event) {
     const { offsetX, offsetY } = event
 
-    console.log(event)
-
     stickerRef.current.style.left = `${offsetX}px`
     stickerRef.current.style.top = `${offsetY}px`
   }

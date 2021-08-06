@@ -16,8 +16,8 @@ ${global}
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      <GlobalStyles />
       <GlobalCursorProvider>
+        <GlobalStyles />
         <CookiesBanner />
         <Layout {...pageProps}>
           <TransitionMain>

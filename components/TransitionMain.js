@@ -7,6 +7,7 @@ import debounce from "lodash/debounce"
 import Scrollbar from "smooth-scrollbar"
 import OverscrollPlugin from "smooth-scrollbar/dist/plugins/overscroll"
 import { colourHierachyAnimation } from "../actions.js/animations"
+import { useCursorStateContext } from "./cursor/context"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,6 +15,7 @@ export default function TransitionMain({ children }) {
   const [offsetY, setOffsetY] = React.useState(0)
   const viewportRef = React.useRef(null)
   const router = useRouter()
+  const { cursor } = useCursorStateContext()
 
   function getOffsetY(event) {
     setOffsetY(event.path[1].pageYOffset)
