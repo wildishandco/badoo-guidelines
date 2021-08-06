@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 
-const Portal = ({ children }) => {
+const Portal = ({ where, children }) => {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const Portal = ({ children }) => {
   }, [])
 
   return mounted
-    ? createPortal(children, document.getElementById("portal"))
+    ? createPortal(children, document.getElementById(`portal-${where}`))
     : null
 }
 

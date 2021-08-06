@@ -54,7 +54,9 @@ export default function GridBlockThree({ s }) {
               />
             )}
             {s?.content[0]?.text && (
-              <p className="grid-block-text">{s?.content[0]?.text}</p>
+              <div className="grid-block-text-container">
+                <p className="grid-block-text">{s?.content[0]?.text}</p>
+              </div>
             )}
             {s?.content[0]?.video?.url && (
               <video
@@ -102,7 +104,9 @@ export default function GridBlockThree({ s }) {
               />
             )}
             {s?.content[2]?.text && (
-              <p className="grid-block-text">{s?.content[2]?.text}</p>
+              <div className="grid-block-text-container">
+                <p className="grid-block-text">{s?.content[2]?.text}</p>
+              </div>
             )}
             {s?.content[2]?.video?.url && (
               <video

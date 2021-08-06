@@ -2,6 +2,7 @@ import React, { createContext, useReducer, useContext } from "react"
 
 let initialState = {
   cursor: "",
+
 }
 
 const CursorStateContext = createContext(initialState)

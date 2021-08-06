@@ -67,7 +67,9 @@ export default function GridBlockFive({ s }) {
                 />
               )}
               {s?.content[0]?.text && (
-                <p className="grid-block-text">{s?.content[0]?.text}</p>
+                <div className="grid-block-text-container">
+                  <p className="grid-block-text">{s?.content[0]?.text}</p>
+                </div>
               )}
               {s?.content[0]?.video?.url && (
                 <video
@@ -89,7 +91,9 @@ export default function GridBlockFive({ s }) {
                 />
               )}
               {s?.content[1]?.text && (
-                <p className="grid-block-text">{s?.content[1]?.text}</p>
+                <div className="grid-block-text-container">
+                  <p className="grid-block-text">{s?.content[1]?.text}</p>
+                </div>
               )}
               {s?.content[1]?.video?.url && (
                 <video
@@ -113,7 +117,9 @@ export default function GridBlockFive({ s }) {
                 />
               )}
               {s?.content[2]?.text && (
-                <p className="grid-block-text">{s?.content[2]?.text}</p>
+                <div className="grid-block-text-container">
+                  <p className="grid-block-text">{s?.content[2]?.text}</p>
+                </div>
               )}
               {s?.content[2]?.video?.url && (
                 <video
@@ -135,7 +141,9 @@ export default function GridBlockFive({ s }) {
                 />
               )}
               {s?.content[3]?.text && (
-                <p className="grid-block-text">{s?.content[3]?.text}</p>
+                <div className="grid-block-text-container">
+                  <p className="grid-block-text">{s?.content[3]?.text}</p>
+                </div>
               )}
               {s?.content[3]?.video?.url && (
                 <video
@@ -160,7 +168,9 @@ export default function GridBlockFive({ s }) {
               />
             )}
             {s?.content[4]?.text && (
-              <p className="grid-block-text">{s?.content[4]?.text}</p>
+              <div className="grid-block-text-container">
+                <p className="grid-block-text">{s?.content[4]?.text}</p>
+              </div>
             )}
             {s?.content[4]?.video?.url && (
               <video

@@ -18,8 +18,12 @@ const globalCss = css`
   }
 
   body {
-    font-family: sans-serif;
+    font-family: "Noi", sans-serif;
     font-style: normal;
+    font-feature-settings: "ss01", "ss02", "ss03", "ss05";
+    font-variation-settings: "wght" 400;
+    font-weight: normal;
+
     font-size: 20px;
     width: 100%;
     height: 100%;
@@ -27,13 +31,17 @@ const globalCss = css`
     overflow-x: hidden;
     position: relative;
     line-height: 1.55;
+
+    letter-spacing: 0em;
+    word-spacing: 0em;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     @media screen and (max-width: 768px) {
       font-size: 16px;
     }
   }
 
-  #portal {
+  .portal {
     position: fixed;
     top: 0;
     left: 0;
@@ -49,7 +57,8 @@ const globalCss = css`
   h4,
   h5,
   h6 {
-    font-weight: 700;
+    font-variation-settings: "wght" 700;
+    font-weight: normal;
   }
 
   a {
@@ -90,6 +99,24 @@ const globalCss = css`
       margin-bottom: 1rem !important;
     }
   }
+
+  /* Smooth scrolling styles */
+
+  #viewport {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+
+  /* 
+
+  #scroll-content {
+    overflow: visible;
+    width: 100%;
+    set a height because the contents are position: absolute, thus natively there's no height */
+
+
+  /*  End smooth scrolling styles  */
 
   .iframe-container {
     position: relative;

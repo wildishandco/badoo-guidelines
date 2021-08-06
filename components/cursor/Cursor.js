@@ -12,7 +12,6 @@ const CursorStyles = styled.div`
   transform: translate(-50%, -50%);
   mix-blend-mode: difference;
   pointer-events: none;
-  transition: 0.1s ease;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -25,9 +24,12 @@ export default function Cursor() {
 
   const handleMouseMove = (event) => {
     const { clientX, clientY } = event
-    const side = window.innerWidth / 2
+    const side = window.innerWidth - 100
+    const bottom = window.innerHeight - 100
 
-    if (clientX < side) {
+    if (clientY > bottom) {
+      dispatch({ type: "UPDATE_CURSOR", cursor: "bottom" })
+    } else if (clientX < 100) {
       dispatch({ type: "UPDATE_CURSOR", cursor: "left" })
     } else if (clientX > side) {
       dispatch({ type: "UPDATE_CURSOR", cursor: "right" })

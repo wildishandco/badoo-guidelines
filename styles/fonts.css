@@ -1,17 +1,5 @@
-/* @font-face {
-  font-family: "Windsor";
-  src: url("../assets/fonts/windsor.woff") format("woff");
+@font-face {
+  font-family: "Noi";
+  src: url("../assets/fonts/NoiVariableFlexBadooGX.ttf") format("truetype");
   font-display: swap;
 }
-
-@font-face {
-  font-family: "Windsor Elongated";
-  src: url("../assets/fonts/windsor-elongated.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Mabry Pro";
-  src: url("../assets/fonts/MabryPro.otf") format("opentype");
-  font-display: swap;
-} */

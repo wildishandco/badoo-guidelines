@@ -2,151 +2,25 @@ import SideNavigation from "../components/SideNavigation"
 import Slices from "../components/slug-page/Slices"
 import Portal from "../components/Portal"
 import { request } from "../lib/datocms"
+import { PAGE_QUERY, SLUG_QUERY } from "../actions.js/queries"
+import MenuAlt from "../components/menu/MenuAlt"
 
-export default function ContentPages({ page }) {
+export default function ContentPages({ page, menu, menuOpen, setMenuOpen }) {
   return (
     <>
       <Slices data={page[0]?.content} title={page[0]?.title} />
-      <Portal>
+      <Portal where="side">
         <SideNavigation
           previous={page[0]?.previousPage}
           next={page[0]?.nextPage}
         />
       </Portal>
+      <Portal where="menu">
+        <MenuAlt menu={menu} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      </Portal>
     </>
   )
 }
-
-const SLUG_QUERY = `
-query SlugQuery {
-  allPages {
-    slug
-  }
-}
-`
-const PAGE_QUERY = `
-query PageQuery($slug: String!) {
-  page: allPages(filter: {slug: {eq: $slug}}) {
-    title
-    nextPage {
-      title
-      slug
-      content {
-        ... on HeroSectionRecord {
-          colourScheme
-        }
-      }
-    }
-    previousPage {
-      title
-      slug
-      content {
-        ... on HeroSectionRecord {
-          colourScheme
-        }
-      }
-    }
-    content {
-      ... on TextEditorPhraseRecord {
-        _modelApiKey
-        phrases
-      }
-      ... on HeroSectionRecord {
-        _modelApiKey
-        introduction
-        colourScheme
-      }
-      ... on ColourHoverSectionRecord {
-        _modelApiKey
-        colourData
-      }
-      ... on BuildingImageTextSectionRecord {
-        _modelApiKey
-        content {
-          value
-          links {
-            __typename
-            ... on GalleryRecord {
-              id
-              gallery {
-                responsiveImage(imgixParams: {auto: format, fit: crop}) {
-                  src
-                  title
-                  alt
-                  base64
-                  bgColor
-                  width
-                  height
-                  aspectRatio
-                }
-              }
-            }
-          }
-        }
-      }
-      ... on GridBlockRecord {
-        _modelApiKey
-        gridBlock {
-          ... on GridBlockFiveRecord {
-            _modelApiKey
-            content {
-              ... on ImageRecord {
-                image {
-                  responsiveImage(imgixParams: {auto: format, fit: crop}) {
-                    src
-                    title
-                    alt
-                    base64
-                    bgColor
-                    width
-                    height
-                    aspectRatio
-                  }
-                }
-              }
-              ... on TextRecord {
-                text
-              }
-              ... on VideoRecord {
-                video {
-                  url
-                }
-              }
-            }
-          }
-          ... on GridBlockThreeRecord {
-            _modelApiKey
-            content {
-              ... on ImageRecord {
-                image {
-                  responsiveImage(imgixParams: {auto: format, fit: crop}) {
-                    src
-                    title
-                    alt
-                    base64
-                    bgColor
-                    width
-                    height
-                    aspectRatio
-                  }
-                }
-              }
-              ... on TextRecord {
-                text
-              }
-              ... on VideoRecord {
-                video {
-                  url
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`
 
 export async function getStaticProps({ params }) {
   const { slug } = params
