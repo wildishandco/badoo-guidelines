@@ -35,6 +35,8 @@ export default class MyDocument extends Document {
           <Main />
           <div className="portal" id="portal-side" />
           <div className="portal" id="portal-menu" />
+          <div className="portal" id="portal-loader" />
+          <div className="portal" id="portal-images" />
           <NextScript />
         </body>
       </Html>

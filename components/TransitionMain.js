@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import debounce from "lodash/debounce"
 import Scrollbar from "smooth-scrollbar"
 import OverscrollPlugin from "smooth-scrollbar/dist/plugins/overscroll"
-import { colourHierachyAnimation } from "../actions.js/animations"
 import { useCursorStateContext } from "./cursor/context"
 
 gsap.registerPlugin(ScrollTrigger)
@@ -15,7 +14,7 @@ export default function TransitionMain({ children }) {
   const [offsetY, setOffsetY] = React.useState(0)
   const viewportRef = React.useRef(null)
   const router = useRouter()
-  const { cursor } = useCursorStateContext()
+  const { direction, menu } = useCursorStateContext()
 
   function getOffsetY(event) {
     setOffsetY(event.path[1].pageYOffset)
@@ -28,7 +27,7 @@ export default function TransitionMain({ children }) {
   function enter(node) {
     gsap.from(node, {
       duration: 1,
-      xPercent: cursor === "left" ? -100 : 100,
+      xPercent: !menu && direction === "left" ? -100 : !menu ? 100 : 0,
     })
   }
 
@@ -37,7 +36,7 @@ export default function TransitionMain({ children }) {
       onComplete: () => {
         gsap.to(node, {
           duration: 1,
-          xPercent: cursor === "left" ? 100 : -100,
+          xPercent: !menu && direction === "left" ? 100 : !menu ? -100 : 0,
         })
       },
       css: {
@@ -46,6 +45,13 @@ export default function TransitionMain({ children }) {
         top: -offsetY,
         minWidth: "100%",
       },
+    })
+  }
+
+  function menuExit(node) {
+    gsap.to(node, {
+      duration: 0.5,
+      opacity: 0,
     })
   }
 
@@ -95,7 +101,7 @@ export default function TransitionMain({ children }) {
         timeout={1000}
         in={true}
         onEnter={enter}
-        onExit={exit}
+        onExit={menu ? menuExit : exit}
         mountOnEnter={true}
         unmountOnExit={true}
       >

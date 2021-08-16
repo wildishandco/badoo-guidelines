@@ -18,10 +18,10 @@ const ColourHoverStyles = styled.section`
     .colour-hover-text {
       pointer-events: none;
       .colour-hover-name {
-        font-size: 5rem;
+        font-size: 8vw;
       }
       .colour-hover-hex {
-        margin-top: 50px;
+        margin-top: 4vh;
       }
     }
   }
@@ -58,9 +58,13 @@ export default function ColourHoverBlock({ s }) {
     <>
       <ColourHoverStyles ref={sectionRef}>
         {s?.colourData?.map((c, i) => (
-          <div key={i} className={`colour-hover-inner ${c.class}`}>
+          <div
+            key={i}
+            className={`colour-hover-inner ${c.class}`}
+            style={{ zIndex: i === 0 ? 1 : 0 }}
+          >
             <div className="colour-hover-text">
-              <p className="colour-hover-name">{c.colour}</p>
+              <p className="colour-hover-name bold">{c.colour}</p>
               <p className="colour-hover-hex">{c.hex}</p>
             </div>
           </div>

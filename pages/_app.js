@@ -1,3 +1,4 @@
+import React from "react"
 import { createGlobalStyle } from "styled-components"
 import "../styles/fonts.css"
 import reset from "../styles/reset"
@@ -7,6 +8,7 @@ import Layout from "../components/Layout"
 import TransitionMain from "../components/TransitionMain"
 import Cursor from "../components/cursor/Cursor"
 import { GlobalCursorProvider } from "../components/cursor/context"
+import LoadScreen from "../components/LoadScreen"
 
 const GlobalStyles = createGlobalStyle`
 ${reset}
@@ -14,6 +16,8 @@ ${global}
 `
 
 export default function MyApp({ Component, pageProps }) {
+  const [loader, setLoader] = React.useState(true)
+
   return (
     <>
       <GlobalCursorProvider>
@@ -25,6 +29,7 @@ export default function MyApp({ Component, pageProps }) {
           </TransitionMain>
         </Layout>
         <Cursor />
+        <LoadScreen loader={loader} setLoader={setLoader} />
       </GlobalCursorProvider>
     </>
   )

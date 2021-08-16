@@ -26,10 +26,24 @@ const stickers = [
 ]
 
 const StickerClickStyles = styled.section`
-  min-height: 95vh;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
+
+  font-size: 5rem;
+  padding: 50px;
+  @media (max-width: 900px) {
+    font-size: 4rem;
+  }
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    min-height: unset;
+  }
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+    padding: 50px 30px;
+  }
   .sticker-click {
     position: absolute;
     width: 100px;
@@ -85,21 +99,23 @@ export default function StickerClickBlock({ s }) {
 
   return (
     <>
-      <StickerClickStyles ref={sectionRef} className="indigo">
-        <img
-          alt="sticker"
-          ref={stickerRef}
-          src={stickers[index]}
-          width="100px"
-          style={{
-            position: "absolute",
-            transform: "translate(-50%, -50%)",
-            pointerEvents: "none",
-            zIndex: 10,
-          }}
-        />
-        <SanitisedHtml html={s?.copy} />
-      </StickerClickStyles>
+      <div className="indigo bold">
+        <StickerClickStyles ref={sectionRef}>
+          <img
+            alt="sticker"
+            ref={stickerRef}
+            src={stickers[index]}
+            width="100px"
+            style={{
+              position: "absolute",
+              transform: "translate(-50%, -50%)",
+              pointerEvents: "none",
+              zIndex: 10,
+            }}
+          />
+          <SanitisedHtml html={s?.copy} style={{ maxWidth: 1300, pointerEvents: "none" }} />
+        </StickerClickStyles>
+      </div>
     </>
   )
 }

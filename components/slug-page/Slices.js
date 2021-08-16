@@ -1,11 +1,14 @@
 import styled from "styled-components"
 import ColourHierachyBlock from "./ColourHierachyBlock"
 import ColourHoverBlock from "./ColourHoverBlock"
+import CopyBlock from "./CopyBlock"
 import GridBlocks from "./grid-blocks/GridBlocks"
 import HeroBlock from "./HeroBlock"
 import ImageBuildBlock from "./ImageBuildBlock"
 import StickerClickBlock from "./StickerClickBlock"
 import TextEditorBlock from "./TextEditorBlock"
+import { Image } from "react-datocms"
+import SlidingTextBlock from "./SlidingTextBlock"
 
 const SliceWrapper = styled.div`
   @media (max-width: 768px) {
@@ -15,6 +18,7 @@ const SliceWrapper = styled.div`
 
 export default function Slices({ data, title }) {
   const sliced = data.map((s, i) => {
+    console.log(s)
     switch (s._modelApiKey) {
       case "hero_section":
         return <HeroBlock key={i} s={s} title={title} />
@@ -30,6 +34,14 @@ export default function Slices({ data, title }) {
         return <GridBlocks key={i} s={s?.gridBlock} />
       case "sticker_click_section":
         return <StickerClickBlock key={i} s={s} />
+      case "copy":
+        return <CopyBlock key={i} s={s} />
+      case "sliding_text_section":
+        return <SlidingTextBlock key={i} i={i} s={s} />
+      case "full_bleed_image":
+        return (
+          <Image key={i} data={s.image.responsiveImage} fadeInDuration={0} />
+        )
       default:
         return null
     }

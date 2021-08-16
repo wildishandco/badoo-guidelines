@@ -2,40 +2,68 @@ import styled from "styled-components"
 import { Image } from "react-datocms"
 
 const GridThreeStyles = styled.div`
-  display: flex;
   width: 100%;
-  min-height: 95vh;
-  .left-flex {
+  position: relative;
+  display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+  .grid-block-three-left {
+    position: relative;
     flex: 1;
-    transition: 0.5s ease all;
-    :hover {
-      flex: 1.2;
+    padding-top: 50vw;
+    transition: 0.5s ease flex;
+    order: ${(props) => (props.order ? "2" : "1")};
+    @media (max-width: 768px) {
+      padding-top: 100vw;
     }
-    .one {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
+    :hover {
+      flex: 1.15;
+    }
+    .grid-block-three-left-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      .grid-block-three-flex {
+        flex: 1;
+        display: flex;
+        transition: 0.5s ease flex;
+        flex-direction: column;
+        :hover {
+          flex: 1.15;
+        }
+        .grid-block-three-item {
+          position: relative;
+          overflow: hidden;
+          flex: 1;
+          transition: 0.5s ease flex;
+          :hover {
+            flex: 1.15;
+          }
+        }
+      }
     }
   }
-  .right-flex {
-    display: flex;
-    flex-direction: column;
+  .grid-block-three-right {
+    position: relative;
+    overflow: hidden;
     flex: 1;
-    transition: 0.5s ease all;
+    padding-top: 50vw;
+    transition: 0.5s ease flex;
+    order: ${(props) => (props.order ? "1" : "2")};
     :hover {
-      flex: 1.2;
+      flex: 1.15;
     }
-    .two,
-    .three {
-      width: 100%;
-      flex: 1;
-      transition: 0.5s ease all;
-      position: relative;
-      overflow: hidden;
-      :hover {
-        flex: 1.2;
-      }
+    .grid-block-three-right-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
   }
 `
@@ -44,68 +72,76 @@ export default function GridBlockThree({ s }) {
   return (
     <>
       <GridThreeStyles>
-        <div className="left-flex">
-          <div className="one badoo-purple">
-            {s?.content[0]?.image?.responsiveImage && (
-              <Image
-                className="fill-image"
-                data={s?.content[0]?.image?.responsiveImage}
-                fadeInDuration={100}
-              />
-            )}
-            {s?.content[0]?.text && (
-              <div className="grid-block-text-container">
-                <p className="grid-block-text">{s?.content[0]?.text}</p>
+        <div className="grid-block-three-left">
+          <div className="grid-block-three-left-inner">
+            <div className="grid-block-three-flex">
+              <div className="cloud-nine grid-block-three-item">
+                {s?.content[0]?.image?.responsiveImage && (
+                  <Image
+                    className="fill-image"
+                    data={s?.content[0]?.image?.responsiveImage}
+                    fadeInDuration={0}
+                  />
+                )}
+                {s?.content[0]?.text && (
+                  <div className="grid-block-text-container">
+                    <p className="grid-block-text bold">
+                      {s?.content[0]?.text}
+                    </p>
+                  </div>
+                )}
+                {s?.content[0]?.video?.url && (
+                  <video
+                    className="fill-video"
+                    src={s?.content[0]?.video?.url}
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                  />
+                )}
               </div>
-            )}
-            {s?.content[0]?.video?.url && (
-              <video
-                className="fill-video"
-                src={s?.content[0]?.video?.url}
-                muted
-                loop
-                autoPlay
-                playsInline
-              />
-            )}
+              <div className="blue grid-block-three-item">
+                {s?.content[1]?.image?.responsiveImage && (
+                  <Image
+                    className="fill-image"
+                    data={s?.content[1]?.image?.responsiveImage}
+                    fadeInDuration={0}
+                  />
+                )}
+                {s?.content[1]?.text && (
+                  <div className="grid-block-text-container">
+                    <p className="grid-block-text bold">
+                      {s?.content[1]?.text}
+                    </p>
+                  </div>
+                )}
+                {s?.content[1]?.video?.url && (
+                  <video
+                    className="fill-video"
+                    src={s?.content[1]?.video?.url}
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                  />
+                )}
+              </div>
+            </div>
           </div>
         </div>
-        <div className="right-flex">
-          <div className="two hot-pink">
-            {s?.content[1]?.image?.responsiveImage && (
-              <Image
-                className="fill-image"
-                data={s?.content[1]?.image?.responsiveImage}
-                fadeInDuration={100}
-              />
-            )}
-            {s?.content[1]?.text && (
-              <div className="grid-block-text-container">
-                <p className="grid-block-text">{s?.content[1]?.text}</p>
-              </div>
-            )}
-            {s?.content[1]?.video?.url && (
-              <video
-                className="fill-video"
-                src={s?.content[1]?.video?.url}
-                muted
-                loop
-                autoPlay
-                playsInline
-              />
-            )}
-          </div>
-          <div className="three violet">
+        <div className="grid-block-three-right">
+          <div className="grid-block-three-right-inner badoo-purple">
             {s?.content[2]?.image?.responsiveImage && (
               <Image
                 className="fill-image"
                 data={s?.content[2]?.image?.responsiveImage}
-                fadeInDuration={100}
+                fadeInDuration={0}
               />
             )}
             {s?.content[2]?.text && (
               <div className="grid-block-text-container">
-                <p className="grid-block-text">{s?.content[2]?.text}</p>
+                <p className="grid-block-text-big bold">{s?.content[2]?.text}</p>
               </div>
             )}
             {s?.content[2]?.video?.url && (

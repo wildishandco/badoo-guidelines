@@ -1,13 +1,12 @@
-import { Image } from "react-datocms"
 import styled from "styled-components"
 
-const StyledImage = styled(Image)`
-  width: 500px;
+const StyledImage = styled.img`
+  width: 100px;
   position: absolute !important;
   opacity: 0;
 `
 
-export default function RandomImage({ image, ...rest }) {
+export default function RandomSticker({ src, ...rest }) {
   function randomFromTo(from, to) {
     return Math.floor(Math.random() * (to - from + 1) + from)
   }
@@ -29,13 +28,12 @@ export default function RandomImage({ image, ...rest }) {
   return (
     <>
       <StyledImage
-        data={image}
+        src={src}
         style={{
           top: `${newY}%`,
           left: `${newX}%`,
           transform: `rotate(${newRotate}deg) translate(-50%, -50%)`,
         }}
-        fadeInDuration={0}
         {...rest}
       />
     </>

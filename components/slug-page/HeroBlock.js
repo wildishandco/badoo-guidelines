@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 import { Image } from "react-datocms"
 import { classNameMaker } from "../../actions.js/actions"
@@ -6,21 +7,48 @@ import SanitisedHtml from "../SanitisedHtml"
 const HeroStyles = styled.section`
   display: flex;
   width: 100%;
-  min-height: 95vh;
-  .hero-section-left {
-    padding: 20px;
-    display: flex;
+  min-height: 100vh;
+  position: relative;
+  @media (max-width: 900px) {
     flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    .hero-section-left-html {
-      justify-self: flex-end;
+  }
+  .hero-arrow {
+    position: absolute;
+    bottom: 1vh;
+    right: 1%;
+    font-size: 3rem;
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+  .hero-section-left {
+    padding: 50px;
+    width: 50%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: end;
+    @media (max-width: 900px) {
+      width: 100%;
+      flex: 1;
+      order: 2;
+      min-height: calc(100vh / 2);
+    }
+    @media (max-width: 768px) {
+      padding: 50px 30px;
     }
   }
   .hero-section-right {
-    flex: 1;
     position: relative;
     overflow: hidden;
+    width: 50%;
+    @media (max-width: 900px) {
+      width: 100%;
+      flex: 1;
+      order: 1;
+      min-height: calc(100vh / 2);
+    }
   }
 `
 
@@ -30,8 +58,9 @@ export default function HeroBlock({ s, title }) {
   return (
     <>
       <HeroStyles className={`${colour}`}>
+        <div className="hero-arrow">↓</div>
         <div className="hero-section-left">
-          <h1>{title}</h1>
+          <h1 className="hero-section-title">{title}</h1>
           <SanitisedHtml
             className="hero-section-left-html"
             html={s?.introduction}

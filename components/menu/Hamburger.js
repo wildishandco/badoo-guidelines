@@ -1,3 +1,4 @@
+import { useRouter } from "next/router"
 import React from "react"
 import styled from "styled-components"
 
@@ -51,6 +52,7 @@ const HamburgerStyles = styled.button`
 
 export default function Hamburger({ menuOpen, setMenuOpen, menuOut }) {
   const ref = React.useRef(null)
+
 
   function handleClick() {
     !menuOpen ? setMenuOpen(true) : menuOut()

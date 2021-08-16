@@ -3,7 +3,6 @@ import Slices from "../components/slug-page/Slices"
 import Portal from "../components/Portal"
 import { request } from "../lib/datocms"
 import { PAGE_QUERY, SLUG_QUERY } from "../actions.js/queries"
-import MenuAlt from "../components/menu/MenuAlt"
 
 export default function ContentPages({ page, menu, menuOpen, setMenuOpen }) {
   return (
@@ -14,9 +13,6 @@ export default function ContentPages({ page, menu, menuOpen, setMenuOpen }) {
           previous={page[0]?.previousPage}
           next={page[0]?.nextPage}
         />
-      </Portal>
-      <Portal where="menu">
-        <MenuAlt menu={menu} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </Portal>
     </>
   )

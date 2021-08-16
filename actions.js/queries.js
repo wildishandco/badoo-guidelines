@@ -69,6 +69,26 @@ query PageQuery($slug: String!) {
         _modelApiKey
         copy
       }
+      ... on CopyRecord {
+        _modelApiKey
+        copy
+        colourScheme
+      }
+      ... on FullBleedImageRecord {
+        _modelApiKey
+        image {
+              responsiveImage(imgixParams: {auto: format, fit: crop}) {
+                src
+                title
+                alt
+                base64
+                bgColor
+                width
+                height
+                aspectRatio
+             }
+        }
+      }
       ... on TextEditorPhraseRecord {
         _modelApiKey
         phrases
@@ -99,8 +119,14 @@ query PageQuery($slug: String!) {
         _modelApiKey
         colourData
       }
+      ... on SlidingTextSectionRecord {
+        _modelApiKey
+        text
+        colourScheme
+      }
       ... on BuildingImageTextSectionRecord {
         _modelApiKey
+        colourScheme
         content {
           value
           links {

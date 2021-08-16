@@ -15,6 +15,9 @@ const globalCss = css`
     --coral: #fc846d;
     --cloud-nine: #f8f5ff;
     --silver: #aaa2b8;
+
+    --change-background: #6e3eff;
+    --change-color: #ffbbd0;
   }
 
   body {
@@ -56,9 +59,52 @@ const globalCss = css`
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  .bold {
     font-variation-settings: "wght" 700;
     font-weight: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 60px;
+    @media (max-width: 768px) {
+      font-size: 48px;
+    }
+    @media (max-width: 480px) {
+      font-size: 40px;
+    }
+  }
+
+  h2 {
+    font-size: 40px;
+    @media (max-width: 768px) {
+      font-size: 30px;
+    }
+    @media (max-width: 480px) {
+      font-size: 22px;
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 32px;
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+    @media (max-width: 480px) {
+      font-size: 18px;
+    }
   }
 
   a {
@@ -108,14 +154,6 @@ const globalCss = css`
     width: 100%;
   }
 
-  /* 
-
-  #scroll-content {
-    overflow: visible;
-    width: 100%;
-    set a height because the contents are position: absolute, thus natively there's no height */
-
-
   /*  End smooth scrolling styles  */
 
   .iframe-container {
@@ -142,15 +180,6 @@ const globalCss = css`
       &:last-child {
         margin: 0;
       }
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin: 0;
     }
 
     .sanitised-img {
@@ -283,6 +312,11 @@ const globalCss = css`
     color: var(--cloud-nine);
   }
 
+  .changing-colours {
+    background: var(--change-background);
+    color: var(--change-color);
+  }
+
   /* End Colour Schemes */
 
   /* Grid block global styles */
@@ -313,8 +347,17 @@ const globalCss = css`
 
   .grid-block-text {
     padding: 20px;
-    font-size: 5vw;
-    line-height: 1.25;
+    font-size: 4vw;
+    line-height: 1.1;
+    @media (max-width: 500px) {
+      font-size: 6vw;
+    }
+  }
+
+  .grid-block-text-big {
+    padding: 20px;
+    font-size: 6vw;
+    line-height: 1.1;
   }
 
   /* End Grid block global styles */

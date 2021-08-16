@@ -2,7 +2,8 @@ import React, { createContext, useReducer, useContext } from "react"
 
 let initialState = {
   cursor: "",
-
+  direction: "",
+  menu: false,
 }
 
 const CursorStateContext = createContext(initialState)
@@ -16,6 +17,18 @@ const cursorReducer = (state, action) => {
         cursor: action.cursor,
       }
     }
+    case "UPDATE_DIRECTION": {
+      return {
+        ...state,
+        direction: action.direction,
+      }
+    }
+    case "UPDATE_MENU": {
+      return {
+        ...state,
+        menu: action.menu,
+      }
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }
@@ -24,7 +37,9 @@ const cursorReducer = (state, action) => {
 
 export const GlobalCursorProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cursorReducer, {
-    cursor: "right",
+    cursor: "",
+    direction: "",
+    menu: false,
   })
 
   return (

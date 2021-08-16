@@ -3,15 +3,12 @@ import styled from "styled-components"
 import { useCursorDispatchContext, useCursorStateContext } from "./context"
 
 const CursorStyles = styled.div`
-  width: 30px;
-  height: 30px;
   position: fixed;
   z-index: 9999;
-  border-radius: 50%;
-  background: yellow;
   transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
   pointer-events: none;
+  font-size: 4rem;
+  color: var(--badoo-purple);
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -28,11 +25,15 @@ export default function Cursor() {
     const bottom = window.innerHeight - 100
 
     if (clientY > bottom) {
-      dispatch({ type: "UPDATE_CURSOR", cursor: "bottom" })
+      dispatch({ type: "UPDATE_CURSOR", cursor: "↓" })
     } else if (clientX < 100) {
-      dispatch({ type: "UPDATE_CURSOR", cursor: "left" })
+      dispatch({ type: "UPDATE_CURSOR", cursor: "←" })
+      dispatch({ type: "UPDATE_DIRECTION", direction: "left" })
     } else if (clientX > side) {
-      dispatch({ type: "UPDATE_CURSOR", cursor: "right" })
+      dispatch({ type: "UPDATE_CURSOR", cursor: "→" })
+      dispatch({ type: "UPDATE_DIRECTION", direction: "right" })
+    } else {
+      dispatch({ type: "UPDATE_CURSOR", cursor: "" })
     }
 
     cursorRef.current.style.left = `${clientX}px`

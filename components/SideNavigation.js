@@ -28,7 +28,7 @@ const LeftNavigation = styled.div`
       position: absolute;
     }
     p {
-      display: block;
+      white-space: nowrap;
       transform: rotate(-90deg);
       pointer-events: none;
     }
