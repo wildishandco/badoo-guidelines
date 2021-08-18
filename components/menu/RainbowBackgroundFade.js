@@ -11,9 +11,16 @@ export default function RainbowBackgroundFade({ left, children }) {
       duration: 1,
       delay: 1,
       css: {
-        background: "#bca8f2",
+        background: "#FF4D88",
       },
     })
+      .to(ref.current, {
+        duration: 1,
+        delay: 1,
+        css: {
+          background: "#bca8f2",
+        },
+      })
       .to(ref.current, {
         duration: 1,
         delay: 1,
@@ -39,7 +46,7 @@ export default function RainbowBackgroundFade({ left, children }) {
         duration: 1,
         delay: 1,
         css: {
-          background: "#FF4D88",
+          background: "#370e7b",
         },
       })
   }, [])
@@ -47,12 +54,13 @@ export default function RainbowBackgroundFade({ left, children }) {
   return (
     <div
       style={{
-        background: "#FF4D88",
+        background: "#370e7b",
         position: "fixed",
         top: 0,
         left: left,
         width: "50%",
         height: "100%",
+        pointerEvents: "none",
       }}
       ref={ref}
     >

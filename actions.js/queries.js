@@ -34,6 +34,15 @@ export const MENU_QUERY = `
     }
 `
 
+export const FOOTER_QUERY = `
+  footer {
+    links {
+      link
+      text
+    }
+  }
+`
+
 export const SLUG_QUERY = `
 query SlugQuery {
   allPages {
@@ -44,6 +53,7 @@ query SlugQuery {
 export const PAGE_QUERY = `
 query PageQuery($slug: String!) {
   ${MENU_QUERY}
+  ${FOOTER_QUERY}
   page: allPages(filter: {slug: {eq: $slug}}) {
     title
     nextPage {
@@ -73,6 +83,10 @@ query PageQuery($slug: String!) {
         _modelApiKey
         copy
         colourScheme
+      }
+      ... on VocabularyConversationRecord {
+        _modelApiKey
+        conversations
       }
       ... on FullBleedImageRecord {
         _modelApiKey
@@ -148,6 +162,14 @@ query PageQuery($slug: String!) {
             }
           }
         }
+      }
+      ... on LogoColourScrollRecord {
+        _modelApiKey
+        show
+      }
+      ... on ColourLogoClickSectionRecord {
+        _modelApiKey
+        colourData
       }
       ... on GridBlockRecord {
         _modelApiKey

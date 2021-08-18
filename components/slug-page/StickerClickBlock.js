@@ -30,7 +30,7 @@ const StickerClickStyles = styled.section`
   width: 100%;
   position: relative;
   overflow: hidden;
-
+  cursor: none;
   font-size: 5rem;
   padding: 50px;
   @media (max-width: 900px) {
@@ -113,7 +113,10 @@ export default function StickerClickBlock({ s }) {
               zIndex: 10,
             }}
           />
-          <SanitisedHtml html={s?.copy} style={{ maxWidth: 1300, pointerEvents: "none" }} />
+          <SanitisedHtml
+            html={s?.copy}
+            style={{ maxWidth: 1300, pointerEvents: "none" }}
+          />
         </StickerClickStyles>
       </div>
     </>

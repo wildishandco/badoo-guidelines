@@ -8,7 +8,7 @@ const CursorStyles = styled.div`
   transform: translate(-50%, -50%);
   pointer-events: none;
   font-size: 4rem;
-  color: var(--badoo-purple);
+  color: var(--blush);
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -17,11 +17,12 @@ const CursorStyles = styled.div`
 export default function Cursor() {
   const cursorRef = React.useRef(null)
   const dispatch = useCursorDispatchContext()
-  const { cursor } = useCursorStateContext()
+  const { cursor, menu } = useCursorStateContext()
 
   const handleMouseMove = (event) => {
     const { clientX, clientY } = event
     const side = window.innerWidth - 100
+    const hamburgerSide = window.innerWidth - 80
     const bottom = window.innerHeight - 100
 
     if (clientY > bottom) {
@@ -29,6 +30,9 @@ export default function Cursor() {
     } else if (clientX < 100) {
       dispatch({ type: "UPDATE_CURSOR", cursor: "←" })
       dispatch({ type: "UPDATE_DIRECTION", direction: "left" })
+    } else if (clientX > hamburgerSide && clientY < 80) {
+      dispatch({ type: "UPDATE_CURSOR", cursor: "" })
+      dispatch({ type: "UPDATE_DIRECTION", direction: "right" })
     } else if (clientX > side) {
       dispatch({ type: "UPDATE_CURSOR", cursor: "→" })
       dispatch({ type: "UPDATE_DIRECTION", direction: "right" })
@@ -47,7 +51,7 @@ export default function Cursor() {
 
   return (
     <>
-      <CursorStyles ref={cursorRef}>{cursor}</CursorStyles>
+      <CursorStyles ref={cursorRef}>{`${cursor}`}</CursorStyles>
     </>
   )
 }

@@ -9,6 +9,9 @@ import StickerClickBlock from "./StickerClickBlock"
 import TextEditorBlock from "./TextEditorBlock"
 import { Image } from "react-datocms"
 import SlidingTextBlock from "./SlidingTextBlock"
+import VocabConvoBlock from "./VocabConvoBlock"
+import LogoColourScrollBlock from "./LogoColourScrollBlock"
+import ColourLogoClickBlock from "./ColourLogoClickBlock"
 
 const SliceWrapper = styled.div`
   @media (max-width: 768px) {
@@ -38,6 +41,12 @@ export default function Slices({ data, title }) {
         return <CopyBlock key={i} s={s} />
       case "sliding_text_section":
         return <SlidingTextBlock key={i} i={i} s={s} />
+      case "vocabulary_conversation":
+        return <VocabConvoBlock key={i} s={s} />
+      case "logo_colour_scroll":
+        return <LogoColourScrollBlock key={i} s={s} />
+      case "colour_logo_click_section":
+        return <ColourLogoClickBlock key={i} s={s} />
       case "full_bleed_image":
         return (
           <Image key={i} data={s.image.responsiveImage} fadeInDuration={0} />

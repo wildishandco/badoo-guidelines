@@ -8,18 +8,24 @@ import { useRouter } from "next/router"
 import { useCursorDispatchContext } from "../cursor/context"
 import RainbowBackgroundFade from "./RainbowBackgroundFade"
 import StickerBuild from "./StickerBuild"
+import Logo from "./Logo"
 
 const MenuLeft = styled.nav`
   position: fixed;
   top: -100%;
   left: 0;
   height: 100%;
-  width: 50%;
+  width: 100%;
   pointer-events: all;
   overflow-x: hidden;
   overflow-y: scroll;
+  background: linear-gradient(
+    90deg,
+    rgba(55, 14, 123, 1) 50.1%,
+    rgba(55, 14, 123, 0) 50.1%
+  );
   @media (max-width: 768px) {
-    width: 100%;
+    background: var(--violet);
   }
   .menu-left {
     display: flex;
@@ -34,6 +40,7 @@ const MenuLeft = styled.nav`
       transition: 0.2s ease color;
       opacity: 0;
       line-height: 1.3;
+      color: var(--champagne);
       @media (max-width: 900px) {
         font-size: 3rem;
       }
@@ -57,7 +64,7 @@ const MenuRight = styled.div`
   height: 100%;
   width: 50%;
   background: var(--badoo-purple);
-  pointer-events: all;
+  pointer-events: none;
   overflow-x: hidden;
   overflow-y: scroll;
   @media (max-width: 768px) {
@@ -89,15 +96,16 @@ export default function Menu({ menu }) {
     )
   }, [router])
 
-  function menuIn() {
-    dispatch({ type: "UPDATE_MENU", menu: true })
+  async function menuIn() {
+    await setMenuOpen(true)
 
     let tl = gsap.timeline()
 
-    tl.to(leftRef.current, {
-      top: 0,
-      duration: 0.4,
-    })
+    await tl
+      .to(leftRef.current, {
+        top: 0,
+        duration: 0.4,
+      })
       .to(rightRef.current, {
         top: 0,
         duration: 0.4,
@@ -126,26 +134,13 @@ export default function Menu({ menu }) {
       .then(() => setMenuOpen(false))
   }
 
-  React.useEffect(() => {
-    menuIn()
-  }, [menuOpen])
-
-  console.log(menu?.menuItems)
-
   return (
     <>
-      <Hamburger
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-        menuOut={menuOut}
-      />
+      <Logo />
+      <Hamburger menuOpen={menuOpen} menuOut={menuOut} menuIn={menuIn} />
       {menuOpen && (
         <>
-          <MenuLeft
-            className="violet menu-section"
-            ref={leftRef}
-            onClick={menuOut}
-          >
+          <MenuLeft className="menu-section" ref={leftRef}>
             {menuWord.includes("colour") && <RainbowBackgroundFade left="0" />}
             <div className="menu-left">
               {menu?.menuItems?.map((m, i) => {

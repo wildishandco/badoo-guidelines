@@ -250,66 +250,105 @@ const globalCss = css`
   .badoo-purple {
     background: var(--badoo-purple);
     color: var(--blush);
+    .a {
+      fill: var(--blush);
+    }
   }
 
   .hot-pink {
     background: var(--hot-pink);
     color: var(--violet);
+    .a {
+      fill: var(--violet);
+    }
   }
 
   .lilac {
     background: var(--lilac);
     color: var(--violet);
+    .a {
+      fill: var(--violet);
+    }
   }
 
   .blush {
     background: var(--blush);
     color: var(--violet);
+    .a {
+      fill: var(--violet);
+    }
   }
 
   .champagne {
     background: var(--champagne);
     color: var(--violet);
+    .a {
+      fill: var(--violet);
+    }
   }
 
   .violet {
     background: var(--violet);
     color: var(--champagne);
+    .a {
+      fill: var(--champagne);
+    }
   }
 
   .indigo {
     background: var(--indigo);
     color: var(--cloud-nine);
+    .a {
+      fill: var(--cloud-nine);
+    }
   }
 
   .blue {
     background: var(--blue);
     color: var(--cloud-nine);
+    .a {
+      fill: var(--cloud-nine);
+    }
   }
 
   .green {
     background: var(--green);
     color: var(--cloud-nine);
+    .a {
+      fill: var(--cloud-nine);
+    }
   }
 
   .honeymoon {
     background: var(--honeymoon);
     color: var(--cloud-nine);
+    .a {
+      fill: var(--cloud-nine);
+    }
   }
 
   .coral {
     background: var(--coral);
     color: var(--cloud-nine);
+    .a {
+      fill: var(--cloud-nine);
+    }
   }
 
   .cloud-nine {
     background: var(--cloud-nine);
     color: var(--silver);
+    .a {
+      fill: var(--silver);
+    }
   }
 
   .silver {
     background: var(--silver);
     color: var(--cloud-nine);
+    .a {
+      fill: var(--cloud-nine);
+    }
   }
 
   .changing-colours {

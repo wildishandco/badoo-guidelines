@@ -27,7 +27,7 @@ export default function TransitionMain({ children }) {
   function enter(node) {
     gsap.from(node, {
       duration: 1,
-      xPercent: !menu && direction === "left" ? -100 : !menu ? 100 : 0,
+      xPercent: direction === "left" ? -100 : 100,
     })
   }
 
@@ -36,7 +36,7 @@ export default function TransitionMain({ children }) {
       onComplete: () => {
         gsap.to(node, {
           duration: 1,
-          xPercent: !menu && direction === "left" ? 100 : !menu ? -100 : 0,
+          xPercent: direction === "left" ? 100 : -100,
         })
       },
       css: {
@@ -45,6 +45,13 @@ export default function TransitionMain({ children }) {
         top: -offsetY,
         minWidth: "100%",
       },
+    })
+  }
+
+  function menuEnter(node) {
+    gsap.from(node, {
+      duration: 0.5,
+      opacity: 0,
     })
   }
 
@@ -100,7 +107,7 @@ export default function TransitionMain({ children }) {
         key={router.asPath}
         timeout={1000}
         in={true}
-        onEnter={enter}
+        onEnter={menu ? menuEnter : enter}
         onExit={menu ? menuExit : exit}
         mountOnEnter={true}
         unmountOnExit={true}

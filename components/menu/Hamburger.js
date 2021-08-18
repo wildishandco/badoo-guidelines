@@ -1,6 +1,9 @@
-import { useRouter } from "next/router"
 import React from "react"
 import styled from "styled-components"
+import {
+  useCursorDispatchContext,
+  useCursorStateContext,
+} from "../cursor/context"
 
 const HamburgerStyles = styled.button`
   background-color: transparent;
@@ -9,14 +12,13 @@ const HamburgerStyles = styled.button`
   display: flex;
   padding: 0;
   pointer-events: all;
-
   position: fixed;
   top: 10px;
   right: 10px;
   z-index: 999;
   .line {
     fill: none;
-    stroke: black;
+    stroke: var(--blush);
     stroke-width: 6;
     transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
       stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -50,12 +52,16 @@ const HamburgerStyles = styled.button`
   }
 `
 
-export default function Hamburger({ menuOpen, setMenuOpen, menuOut }) {
+export default function Hamburger({ menuOpen, menuOut, menuIn }) {
   const ref = React.useRef(null)
-
+  const [clicked, setClicked] = React.useState(false)
+  const dispatch = useCursorDispatchContext()
+  const { menu } = useCursorStateContext()
 
   function handleClick() {
-    !menuOpen ? setMenuOpen(true) : menuOut()
+    !menuOpen ? menuIn() : menuOut()
+    setClicked(!clicked)
+    dispatch({ type: "UPDATE_MENU", menu: !menu })
   }
 
   return (
@@ -64,7 +70,7 @@ export default function Hamburger({ menuOpen, setMenuOpen, menuOut }) {
         ref={ref}
         onClick={handleClick}
         aria-label="Main Menu"
-        className={menuOpen && "opened"}
+        className={clicked && "opened"}
       >
         <svg width="60" height="60" viewBox="0 0 100 100">
           <path

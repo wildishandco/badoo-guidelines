@@ -9,6 +9,7 @@ import TransitionMain from "../components/TransitionMain"
 import Cursor from "../components/cursor/Cursor"
 import { GlobalCursorProvider } from "../components/cursor/context"
 import LoadScreen from "../components/LoadScreen"
+import Footer from "../components/Footer"
 
 const GlobalStyles = createGlobalStyle`
 ${reset}
@@ -26,6 +27,7 @@ export default function MyApp({ Component, pageProps }) {
         <Layout {...pageProps}>
           <TransitionMain>
             <Component {...pageProps} />
+            <Footer {...pageProps} />
           </TransitionMain>
         </Layout>
         <Cursor />
