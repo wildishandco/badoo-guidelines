@@ -7,7 +7,7 @@ const StyledHtml = styled(SanitisedHtml)`
   padding: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: auto;
   gap: 50px;
   max-width: 1300px;
   @media (max-width: 768px) {
