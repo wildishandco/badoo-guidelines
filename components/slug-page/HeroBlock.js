@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Image } from "react-datocms"
-import { classNameMaker } from "../../actions.js/actions"
+import { classNameMaker } from "../../actions/actions"
 import SanitisedHtml from "../SanitisedHtml"
 
 const HeroStyles = styled.section`
@@ -72,6 +72,16 @@ export default function HeroBlock({ s, title }) {
               data={s?.heroMedia?.responsiveImage}
               fadeInDuration={0}
               className="fill-image"
+            />
+          )}
+          {s?.heroMedia?.url.includes(".mp4") && (
+            <video
+              src={s?.heroMedia?.url}
+              className="fill-video"
+              loop
+              autoPlay
+              playsInline
+              muted
             />
           )}
         </div>

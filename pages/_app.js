@@ -26,7 +26,7 @@ export default function MyApp({ Component, pageProps }) {
         <CookiesBanner />
         <Layout {...pageProps}>
           <TransitionMain>
-            <Component {...pageProps} />
+            <Component {...pageProps} loader={loader} />
             <Footer {...pageProps} />
           </TransitionMain>
         </Layout>

@@ -27,7 +27,7 @@ export default function Cursor() {
 
     if (clientY > bottom) {
       dispatch({ type: "UPDATE_CURSOR", cursor: "↓" })
-    } else if (clientX < 100) {
+    } else if (clientX < 100 && clientY > 80) {
       dispatch({ type: "UPDATE_CURSOR", cursor: "←" })
       dispatch({ type: "UPDATE_DIRECTION", direction: "left" })
     } else if (clientX > hamburgerSide && clientY < 80) {

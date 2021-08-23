@@ -2,12 +2,12 @@ import SideNavigation from "../components/SideNavigation"
 import Slices from "../components/slug-page/Slices"
 import Portal from "../components/Portal"
 import { request } from "../lib/datocms"
-import { PAGE_QUERY, SLUG_QUERY } from "../actions.js/queries"
+import { PAGE_QUERY, SLUG_QUERY } from "../actions/queries"
 
-export default function ContentPages({ page, menu, menuOpen, setMenuOpen }) {
+export default function ContentPages({ page, loader }) {
   return (
     <>
-      <Slices data={page[0]?.content} title={page[0]?.title} />
+      <Slices data={page[0]?.content} title={page[0]?.title} loader={loader} />
       <Portal where="side">
         <SideNavigation
           previous={page[0]?.previousPage}

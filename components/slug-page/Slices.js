@@ -12,16 +12,22 @@ import SlidingTextBlock from "./SlidingTextBlock"
 import VocabConvoBlock from "./VocabConvoBlock"
 import LogoColourScrollBlock from "./LogoColourScrollBlock"
 import ColourLogoClickBlock from "./ColourLogoClickBlock"
+import InterviewBlock from "./InterviewBlock"
+import TypographyGridBlock from "./TypographyGridBlock"
+import StickerGridBlock from "./StickerGridBlock"
+import HomepageHeroBlock from "./HomepageHeroBlock"
 
 const SliceWrapper = styled.div`
   @media (max-width: 768px) {
     padding: 0 40px;
   }
+  @media (max-width: 375px) {
+    padding: 0;
+  }
 `
 
-export default function Slices({ data, title }) {
+export default function Slices({ data, title, loader }) {
   const sliced = data.map((s, i) => {
-    console.log(s)
     switch (s._modelApiKey) {
       case "hero_section":
         return <HeroBlock key={i} s={s} title={title} />
@@ -34,7 +40,9 @@ export default function Slices({ data, title }) {
       case "colour_hierarchy_section":
         return <ColourHierachyBlock key={i} s={s} />
       case "grid_block":
-        return <GridBlocks key={i} s={s?.gridBlock} />
+        return (
+          <GridBlocks key={i} s={s?.gridBlock} left={s?.bigImageOnTheLeft} />
+        )
       case "sticker_click_section":
         return <StickerClickBlock key={i} s={s} />
       case "copy":
@@ -47,6 +55,14 @@ export default function Slices({ data, title }) {
         return <LogoColourScrollBlock key={i} s={s} />
       case "colour_logo_click_section":
         return <ColourLogoClickBlock key={i} s={s} />
+      case "interview_section":
+        return <InterviewBlock key={i} s={s} />
+      case "typography_grid_section":
+        return <TypographyGridBlock key={i} s={s} />
+      case "sticker_grid_section":
+        return <StickerGridBlock key={i} s={s} />
+      case "hompage_hero":
+        return <HomepageHeroBlock key={i} i={i} s={s} loader={loader} />
       case "full_bleed_image":
         return (
           <Image key={i} data={s.image.responsiveImage} fadeInDuration={0} />
@@ -56,5 +72,5 @@ export default function Slices({ data, title }) {
     }
   })
 
-  return <SliceWrapper>{sliced}</SliceWrapper>
+  return <SliceWrapper className="badoo-purple">{sliced}</SliceWrapper>
 }

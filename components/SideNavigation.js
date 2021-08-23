@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import styled from "styled-components"
-import { classNameMaker } from "../actions.js/actions"
+import { classNameMaker } from "../actions/actions"
 
 const LeftNavigation = styled.div`
   position: fixed;
@@ -13,6 +13,9 @@ const LeftNavigation = styled.div`
   @media (max-width: 768px) {
     width: 40px;
     left: 0 !important;
+  }
+  @media (max-width: 375px) {
+    display: none;
   }
   .nav-container {
     display: block;
@@ -40,6 +43,7 @@ const RightNavigation = styled(LeftNavigation)`
     left: unset !important;
     right: 0 !important;
   }
+
   .nav-container {
     p {
       transform: rotate(90deg);
@@ -85,8 +89,8 @@ export default function SideNavigation({ previous, next }) {
         style={{ left: position === "left" ? "0px" : "-50px" }}
       >
         <div className="nav-container">
-          <Link href={`/${previous?.slug}`}> </Link>
-          <p>{previous?.title}</p>
+          <Link href={previous ? `/${previous?.slug}` : "/"}> </Link>
+          <p>{previous ? previous?.title : "Home"}</p>
         </div>
       </LeftNavigation>
       <RightNavigation
@@ -94,8 +98,8 @@ export default function SideNavigation({ previous, next }) {
         style={{ right: position === "right" ? "0px" : "-50px" }}
       >
         <div className="nav-container">
-          <Link href={`/${next?.slug}`}> </Link>
-          <p>{next?.title}</p>
+          <Link href={next ? `/${next?.slug}` : "/"}> </Link>
+          <p>{next ? next?.title : "Home"}</p>
         </div>
       </RightNavigation>
     </>

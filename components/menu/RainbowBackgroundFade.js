@@ -1,5 +1,12 @@
 import * as React from "react"
 import { gsap } from "gsap"
+import styled from "styled-components"
+
+const Styles = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
 
 export default function RainbowBackgroundFade({ left, children }) {
   const ref = React.useRef(null)
@@ -52,7 +59,7 @@ export default function RainbowBackgroundFade({ left, children }) {
   }, [])
 
   return (
-    <div
+    <Styles
       style={{
         background: "#370e7b",
         position: "fixed",
@@ -65,6 +72,6 @@ export default function RainbowBackgroundFade({ left, children }) {
       ref={ref}
     >
       {children}
-    </div>
+    </Styles>
   )
 }

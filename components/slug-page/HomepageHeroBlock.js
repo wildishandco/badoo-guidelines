@@ -1,53 +1,31 @@
 import React from "react"
 import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import styled from "styled-components"
 import sanitizeHtml from "sanitize-html"
+import { SlidingTextStyles } from "./SlidingTextBlock"
 import { classNameMaker } from "../../actions/actions"
 
-gsap.registerPlugin(ScrollTrigger)
-
-export const SlidingTextStyles = styled.div`
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  h2,
-  p {
-    font-size: 8vw;
-    line-height: 1.1;
-    opacity: 0;
-    padding: 0 30px;
-    @media (max-width: 768px) {
-      font-size: 11vw;
-    }
-  }
-`
-
-export default function SlidingTextBlock({ s, i }) {
+export default function HomepageHeroBlock({ s, i, loader }) {
   const ref = React.useRef(null)
   const colour = classNameMaker(s?.colourScheme)
 
   const cleanHtml = sanitizeHtml(s?.text, {
-    allowedTags: ["p"],
-    allowedAttributes: { p: ["class"] },
+    allowedTags: ["h2"],
+    allowedAttributes: { h2: ["class"] },
     transformTags: {
-      "*": sanitizeHtml.simpleTransform("p", {
-        class: `sliding-text-block-item sliding-text-block-item-${i} bold`,
+      "*": sanitizeHtml.simpleTransform("h2", {
+        class: `homepage-hero-block-item`,
       }),
     },
   })
 
   React.useEffect(() => {
-    setTimeout(() => {
+    if (!loader) {
       const items = Array.from(
-        document.querySelectorAll(`.sliding-text-block-item-${i}`)
+        document.querySelectorAll(`.homepage-hero-block-item`)
       )
 
-      let tl = gsap.timeline({
-        scrollTrigger: { trigger: ref.current, scrub: true, pin: true },
-      })
+      let tl = gsap.timeline()
 
       function isEven(value) {
         if (value % 2 == 0) return true
@@ -61,14 +39,12 @@ export default function SlidingTextBlock({ s, i }) {
           {
             xPercent: isEven(i) ? -10 : 10,
             autoAlpha: 1,
-            duration: 1,
+            duration: 0.4,
           }
         )
       })
-
-      tl.scrollTrigger.refresh()
-    }, 100)
-  }, [])
+    }
+  }, [loader])
 
   return (
     <>

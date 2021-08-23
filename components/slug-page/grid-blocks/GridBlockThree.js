@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { Image } from "react-datocms"
 
-const GridThreeStyles = styled.div`
+export const GridThreeStyles = styled.div`
   width: 100%;
   position: relative;
   display: flex;
@@ -68,10 +68,10 @@ const GridThreeStyles = styled.div`
   }
 `
 
-export default function GridBlockThree({ s }) {
+export default function GridBlockThree({ s, left }) {
   return (
     <>
-      <GridThreeStyles>
+      <GridThreeStyles order={left}>
         <div className="grid-block-three-left">
           <div className="grid-block-three-left-inner">
             <div className="grid-block-three-flex">
@@ -141,7 +141,9 @@ export default function GridBlockThree({ s }) {
             )}
             {s?.content[2]?.text && (
               <div className="grid-block-text-container">
-                <p className="grid-block-text-big bold">{s?.content[2]?.text}</p>
+                <p className="grid-block-text-big bold">
+                  {s?.content[2]?.text}
+                </p>
               </div>
             )}
             {s?.content[2]?.video?.url && (

@@ -64,6 +64,12 @@ export default function Hamburger({ menuOpen, menuOut, menuIn }) {
     dispatch({ type: "UPDATE_MENU", menu: !menu })
   }
 
+  React.useEffect(() => {
+    if (!menuOpen) {
+      setClicked(false)
+    }
+  }, [menuOpen])
+
   return (
     <>
       <HamburgerStyles

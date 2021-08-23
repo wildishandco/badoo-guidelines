@@ -72,10 +72,10 @@ const GridFiveStyles = styled.div`
   }
 `
 
-export default function GridBlockFive({ s }) {
+export default function GridBlockFive({ s, left }) {
   return (
     <>
-      <GridFiveStyles>
+      <GridFiveStyles order={left}>
         <div className="grid-block-five-left">
           <div className="grid-block-five-left-inner">
             <div className="grid-block-five-left-top">
@@ -199,7 +199,9 @@ export default function GridBlockFive({ s }) {
             )}
             {s?.content[4]?.text && (
               <div className="grid-block-text-container">
-                <p className="grid-block-text-big bold">{s?.content[4]?.text}</p>
+                <p className="grid-block-text-big bold">
+                  {s?.content[4]?.text}
+                </p>
               </div>
             )}
             {s?.content[4]?.video?.url && (

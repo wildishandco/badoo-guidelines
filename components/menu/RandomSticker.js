@@ -4,6 +4,9 @@ const StyledImage = styled.img`
   width: 100px;
   position: absolute !important;
   opacity: 0;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export default function RandomSticker({ src, ...rest }) {

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import logoLockup from "../assets/logo-lockup.svg"
 
 const FooterStyles = styled.footer`
   min-height: 50px;
@@ -6,8 +7,19 @@ const FooterStyles = styled.footer`
   padding: 20px;
   justify-content: space-between;
   font-size: 0.8rem;
-  *:not(:last-child) {
+  @media (max-width: 768px) {
+    padding: 20px 60px;
+    flex-direction: column;
+  }
+  @media (max-width: 375px) {
+    padding: 20px;
+  }
+  > *:not(:last-child) {
     margin-right: 20px;
+    @media (max-width: 768px) {
+      margin-right: 0px;
+      margin-bottom: 20px;
+    }
   }
   .footer-links {
     a:not(:last-child) {
@@ -20,11 +32,17 @@ export default function Footer({ footer }) {
   return (
     <>
       <FooterStyles className="badoo-purple">
-        <div className="footer-logos">Proudly part of Bumble Inc.</div>
+        <div className="footer-logos">
+          <img
+            src={logoLockup}
+            style={{ marginRight: 10, marginTop: -5, objectFit: "unset" }}
+          />
+          Proudly part of Bumble Inc.
+        </div>
         <div className="footer-links">
           {footer?.links?.map((f, i) => {
             return (
-              <a href={f?.link} target="_blank" rel="noopener">
+              <a key={i} href={f?.link} target="_blank" rel="noopener">
                 {f?.text}
               </a>
             )

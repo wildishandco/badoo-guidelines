@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { gsap } from "gsap"
 import RandomImage from "./RandomImage"
 import Portal from "../Portal"
-import { classNameMaker } from "../../actions.js/actions"
+import { classNameMaker } from "../../actions/actions"
 
 gsap.config({ nullTargetWarn: false })
 
@@ -27,6 +27,8 @@ const ImageBuildStyles = styled.div`
   span {
     position: relative;
     border-radius: 5rem;
+    white-space: nowrap;
+
     border: 3px solid
       ${(props) =>
         props.borderColour === "badoo-purple"

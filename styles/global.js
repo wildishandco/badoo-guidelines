@@ -23,7 +23,7 @@ const globalCss = css`
   body {
     font-family: "Noi", sans-serif;
     font-style: normal;
-    font-feature-settings: "ss01", "ss02", "ss03", "ss05";
+    font-feature-settings: "ss01", "ss02", "ss03";
     font-variation-settings: "wght" 400;
     font-weight: normal;
 
@@ -113,6 +113,14 @@ const globalCss = css`
     cursor: pointer;
   }
 
+  blockquote {
+    font-size: 3rem;
+    font-variation-settings: "wght" 700, "ital" 100;
+    font-weight: normal;
+    padding: 20px 0;
+    line-height: 1.3;
+  }
+
   button {
     cursor: pointer;
     font-size: inherit;
@@ -131,16 +139,14 @@ const globalCss = css`
   }
 
   ul {
-    list-style-position: outside;
-    margin-left: 18px !important;
+    list-style-position: inside;
     li {
       margin-bottom: 1rem !important;
     }
   }
 
   ol {
-    list-style-position: outside;
-    margin-left: 22px !important;
+    list-style-position: inside;
     li {
       margin-bottom: 1rem !important;
     }
@@ -400,6 +406,102 @@ const globalCss = css`
   }
 
   /* End Grid block global styles */
+
+  /* input range styles */
+
+  input[type="range"] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  input[type="range"]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+
+  input[type="range"]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: var(--violet);
+    cursor: pointer;
+    margin-top: -6px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  }
+
+  /* All the same stuff for Firefox */
+  input[type="range"]::-moz-range-thumb {
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: var(--violet);
+    cursor: pointer;
+  }
+
+  /* All the same stuff for IE */
+  input[type="range"]::-ms-thumb {
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: var(--violet);
+    cursor: pointer;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: var(--violet);
+  }
+
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: var(--violet);
+  }
+
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: var(--violet);
+  }
+
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background: var(--violet);
+  }
+  input[type="range"]:focus::-ms-fill-lower {
+    background: var(--violet);
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: var(--violet);
+  }
+  input[type="range"]:focus::-ms-fill-upper {
+    background: var(--violet);
+  }
+
+  /* end input range styles  */
 `
 
 export default globalCss

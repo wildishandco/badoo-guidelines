@@ -35,8 +35,13 @@ export default class MyDocument extends Document {
           <Main />
           <div className="portal" id="portal-side" />
           <div className="portal" id="portal-menu" style={{ zIndex: 99999 }} />
-          <div className="portal" id="portal-loader" />
+          <div
+            className="portal"
+            id="portal-loader"
+            style={{ zIndex: 999999 }}
+          />
           <div className="portal" id="portal-images" />
+          <div className="portal" id="portal-voice" />
           <NextScript />
         </body>
       </Html>

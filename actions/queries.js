@@ -1,5 +1,8 @@
 export const MENU_QUERY = `
    menu: menu {
+      googleLink
+      menuInfo
+      appleLink
       menuItems {
         title
         slug
@@ -9,10 +12,6 @@ export const MENU_QUERY = `
             video {
               url
             }
-          }
-          ... on PhraseRecord {
-            _modelApiKey
-            phrases
           }
           ... on ImageRecord {
             _modelApiKey
@@ -50,31 +49,9 @@ query SlugQuery {
   }
 }
 `
-export const PAGE_QUERY = `
-query PageQuery($slug: String!) {
-  ${MENU_QUERY}
-  ${FOOTER_QUERY}
-  page: allPages(filter: {slug: {eq: $slug}}) {
-    title
-    nextPage {
-      title
-      slug
-      content {
-        ... on HeroSectionRecord {
-          colourScheme
-        }
-      }
-    }
-    previousPage {
-      title
-      slug
-      content {
-        ... on HeroSectionRecord {
-          colourScheme
-        }
-      }
-    }
-    content {
+
+export const CONTENT_QUERY = `
+content {
       ... on StickerClickSectionRecord {
         _modelApiKey
         copy
@@ -87,6 +64,59 @@ query PageQuery($slug: String!) {
       ... on VocabularyConversationRecord {
         _modelApiKey
         conversations
+        copy
+      }
+      ... on InterviewSectionRecord {
+        _modelApiKey
+        interviews {
+          title
+          introduction
+          heroImage {
+              responsiveImage(imgixParams: {auto: format, fit: crop}) {
+                src
+                title
+                alt
+                base64
+                bgColor
+                width
+                height
+                aspectRatio
+             }
+          }
+          content
+        }
+      }
+      ... on TypographyGridSectionRecord {
+        _modelApiKey
+        rightImages {
+          responsiveImage(imgixParams: {auto: format, fit: crop}) {
+                src
+                title
+                alt
+                base64
+                bgColor
+                width
+                height
+                aspectRatio
+             }
+          url
+        }
+      }
+            ... on StickerGridSectionRecord {
+        _modelApiKey
+        stickers {
+          url
+              responsiveImage(imgixParams: {auto: format, fit: crop}) {
+                src
+                title
+                alt
+                base64
+                bgColor
+                width
+                height
+                aspectRatio
+             }
+        }
       }
       ... on FullBleedImageRecord {
         _modelApiKey
@@ -128,6 +158,11 @@ query PageQuery($slug: String!) {
                 aspectRatio
              }
         }
+      }
+            ... on HompageHeroRecord {
+        _modelApiKey
+        colourScheme
+        text
       }
       ... on ColourHoverSectionRecord {
         _modelApiKey
@@ -173,6 +208,7 @@ query PageQuery($slug: String!) {
       }
       ... on GridBlockRecord {
         _modelApiKey
+        bigImageOnTheLeft
         gridBlock {
           ... on GridBlockFiveRecord {
             _modelApiKey
@@ -230,7 +266,62 @@ query PageQuery($slug: String!) {
           }
         }
       }
+    }`
+
+export const PAGE_QUERY = `
+query PageQuery($slug: String!) {
+  ${MENU_QUERY}
+  ${FOOTER_QUERY}
+  page: allPages(filter: {slug: {eq: $slug}}) {
+    title
+    nextPage {
+      title
+      slug
+      content {
+        ... on HeroSectionRecord {
+          colourScheme
+        }
+      }
     }
+    previousPage {
+      title
+      slug
+      content {
+        ... on HeroSectionRecord {
+          colourScheme
+        }
+      }
+    }
+    ${CONTENT_QUERY}
   }
 }
+`
+
+export const HOME_QUERY = `
+query HomeQuery {
+  ${MENU_QUERY}
+  ${FOOTER_QUERY}
+  homepage {
+      nextPage {
+      title
+      slug
+      content {
+        ... on HeroSectionRecord {
+          colourScheme
+        }
+      }
+    }
+    previousPage {
+      title
+      slug
+      content {
+        ... on HeroSectionRecord {
+          colourScheme
+        }
+      }
+    }
+    ${CONTENT_QUERY}
+  }
+}
+
 `

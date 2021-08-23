@@ -56,9 +56,11 @@ const SmilePath = styled.path`
 
 export default function LoadScreen({ loader, setLoader }) {
   React.useEffect(() => {
-    setTimeout(() => {
-      setLoader(false)
-    }, 2000)
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        setLoader(false)
+      }, 2000)
+    })
   }, [])
 
   return (
