@@ -14,7 +14,7 @@ const LeftNavigation = styled.div`
     width: 40px;
     left: 0 !important;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 480px) {
     display: none;
   }
   .nav-container {

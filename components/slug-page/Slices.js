@@ -21,7 +21,7 @@ const SliceWrapper = styled.div`
   @media (max-width: 768px) {
     padding: 0 40px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 480px) {
     padding: 0;
   }
 `

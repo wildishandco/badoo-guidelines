@@ -245,7 +245,7 @@ export default function Menu({ menu }) {
                 )
               })}
               <p className="menu-info">{menu?.menuInfo}</p>
-              <div className="menu-app-buttons">
+              <div className="menu-app-buttons menu-info">
                 <a href={menu?.googleLink}>
                   <img
                     style={{ objectFit: "unset" }}
