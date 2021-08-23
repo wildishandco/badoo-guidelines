@@ -268,11 +268,20 @@ content {
       }
     }`
 
+export const SEO_QUERY = `
+   seo: _seoMetaTags {
+      tag
+      content
+      attributes
+    }    
+`
+
 export const PAGE_QUERY = `
 query PageQuery($slug: String!) {
   ${MENU_QUERY}
   ${FOOTER_QUERY}
   page: allPages(filter: {slug: {eq: $slug}}) {
+    ${SEO_QUERY}
     title
     nextPage {
       title
@@ -302,6 +311,7 @@ query HomeQuery {
   ${MENU_QUERY}
   ${FOOTER_QUERY}
   homepage {
+      ${SEO_QUERY}
       nextPage {
       title
       slug

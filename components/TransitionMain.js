@@ -69,12 +69,12 @@ export default function TransitionMain({ children }) {
 
     if (scroller) {
       const bodyScrollBar = Scrollbar.init(scroller, {
-        damping: 0.05,
+        damping: 0.04,
         plugins: {
           overscroll: {
             effect: "bounce",
             damping: 0.15,
-            maxOverscroll: 100,
+            maxOverscroll: 50,
           },
         },
       })

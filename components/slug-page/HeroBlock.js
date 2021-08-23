@@ -62,6 +62,7 @@ export default function HeroBlock({ s, title }) {
         <div className="hero-section-left">
           <h1 className="hero-section-title">{title}</h1>
           <SanitisedHtml
+            dontAnimate
             className="hero-section-left-html"
             html={s?.introduction}
           />

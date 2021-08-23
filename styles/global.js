@@ -502,6 +502,10 @@ const globalCss = css`
   }
 
   /* end input range styles  */
+
+  .scrollbar-track {
+    opacity: 0 !important;
+  }
 `
 
 export default globalCss

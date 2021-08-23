@@ -1,3 +1,5 @@
+import Head from "next/head"
+import { renderMetaTags } from "react-datocms"
 import SideNavigation from "../components/SideNavigation"
 import Slices from "../components/slug-page/Slices"
 import Portal from "../components/Portal"
@@ -7,6 +9,7 @@ import { PAGE_QUERY, SLUG_QUERY } from "../actions/queries"
 export default function ContentPages({ page, loader }) {
   return (
     <>
+      <Head>{renderMetaTags(page[0]?.seo)}</Head>
       <Slices data={page[0]?.content} title={page[0]?.title} loader={loader} />
       <Portal where="side">
         <SideNavigation

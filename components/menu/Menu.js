@@ -46,7 +46,6 @@ const MenuLeft = styled.nav`
     .menu-app-buttons {
       z-index: 2;
       display: flex;
-      max-width: 50%;
       a {
         max-width: 50%;
         width: 150px;
