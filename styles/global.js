@@ -245,7 +245,7 @@ const globalCss = css`
 
   #rcc-confirm-button {
     background: #fff;
-    color: var(--colour-6);
+    color: var(--badoo-purple);
     padding: 5px;
     border-radius: 5px;
     margin: 0 10px;

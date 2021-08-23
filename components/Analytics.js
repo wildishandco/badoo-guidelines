@@ -1,11 +1,9 @@
 import Head from "next/head"
-import favicon from "../assets/favicon.ico"
 
 export default function Analytics() {
   return (
     <>
       <Head>
-        <link rel="icon" type="image/ico" href={favicon} />
         {/* <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-198483278-1"

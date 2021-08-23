@@ -1,7 +1,5 @@
 import * as React from "react"
-import Head from "next/head"
 import CookieConsent from "react-cookie-consent"
-import favicon from "../assets/favicon.ico"
 import Analytics from "./Analytics"
 import { getCookie } from "../lib/getCookie"
 
@@ -19,13 +17,7 @@ export default function CookiesBanner() {
 
   return (
     <>
-      {cookiesAccepted ? (
-        <Analytics />
-      ) : (
-        <Head>
-          <link rel="icon" type="image/ico" href={favicon} />
-        </Head>
-      )}
+      {cookiesAccepted && <Analytics />}
       <CookieConsent
         onAccept={() => setCookiesAccepted(true)}
         onDecline={() => setCookiesAccepted(false)}
@@ -35,7 +27,7 @@ export default function CookiesBanner() {
         declineButtonText="Decline"
         cookieName="cookies_settings"
         disableStyles={true}
-        containerClasses="cookies-container"
+        containerClasses="cookies-container badoo-purple"
         buttonWrapperClasses="cookies-buttons"
         contentClasses="cookies-inner"
       >
