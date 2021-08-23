@@ -15,6 +15,9 @@ const ColourHierachyStyles = styled.section`
   .colour-scroll-copy {
     max-width: 600px;
     padding: 60px;
+    @media (max-width: 480px) {
+      padding: 20px;
+    }
   }
   .colour-scroll-block {
     position: absolute;

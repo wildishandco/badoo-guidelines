@@ -48,6 +48,19 @@ const StickerClickStyles = styled.section`
     position: absolute;
     width: 100px;
     pointer-events: none;
+    @media (max-width: 500px) {
+      width: 60px;
+    }
+  }
+  .sticker-mouse-image {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    width: 100px;
+    @media (max-width: 500px) {
+      width: 60px;
+    }
   }
 `
 
@@ -105,13 +118,7 @@ export default function StickerClickBlock({ s }) {
             alt="sticker"
             ref={stickerRef}
             src={stickers[index]}
-            width="100px"
-            style={{
-              position: "absolute",
-              transform: "translate(-50%, -50%)",
-              pointerEvents: "none",
-              zIndex: 10,
-            }}
+            className="sticker-mouse-image"
           />
           <SanitisedHtml
             html={s?.copy}

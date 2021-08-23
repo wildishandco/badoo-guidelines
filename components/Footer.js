@@ -11,7 +11,7 @@ const FooterStyles = styled.footer`
     padding: 20px 60px;
     flex-direction: column;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 480px) {
     padding: 20px;
   }
   > *:not(:last-child) {
@@ -37,7 +37,9 @@ export default function Footer({ footer }) {
             src={logoLockup}
             style={{ marginRight: 10, marginTop: -5, objectFit: "unset" }}
           />
-          Proudly part of Bumble Inc.
+          <span style={{ whiteSpace: "nowrap" }}>
+            Proudly part of Bumble Inc.
+          </span>
         </div>
         <div className="footer-links">
           {footer?.links?.map((f, i) => {
