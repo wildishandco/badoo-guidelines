@@ -7,7 +7,7 @@ const LeftNavigation = styled.div`
   position: fixed;
   bottom: 0;
   top: 0;
-  width: 50px;
+  width: 80px;
   pointer-events: all;
   transition: 0.4s ease all;
   @media (max-width: 768px) {
@@ -34,6 +34,12 @@ const LeftNavigation = styled.div`
       white-space: nowrap;
       transform: rotate(-90deg);
       pointer-events: none;
+      font-size: 28px;
+      margin-left: -12px;
+      @media (max-width: 768px) {
+        font-size: 20px;
+        margin: 0 !important;
+      }
     }
   }
 `
@@ -47,6 +53,7 @@ const RightNavigation = styled(LeftNavigation)`
   .nav-container {
     p {
       transform: rotate(90deg);
+      margin-right: -12px;
     }
   }
 `
@@ -86,20 +93,20 @@ export default function SideNavigation({ previous, next }) {
     <>
       <LeftNavigation
         className={`${prevColour}`}
-        style={{ left: position === "left" ? "0px" : "-50px" }}
+        style={{ left: position === "left" ? "0px" : "-80px" }}
       >
         <div className="nav-container">
           <Link href={previous ? `/${previous?.slug}` : "/"}> </Link>
-          <p>{previous ? previous?.title : "Home"}</p>
+          <p className="bold">{previous ? previous?.title : "Home"}</p>
         </div>
       </LeftNavigation>
       <RightNavigation
         className={`${nextColour}`}
-        style={{ right: position === "right" ? "0px" : "-50px" }}
+        style={{ right: position === "right" ? "0px" : "-80px" }}
       >
         <div className="nav-container">
           <Link href={next ? `/${next?.slug}` : "/"}> </Link>
-          <p>{next ? next?.title : "Home"}</p>
+          <p className="bold">{next ? next?.title : "Home"}</p>
         </div>
       </RightNavigation>
     </>

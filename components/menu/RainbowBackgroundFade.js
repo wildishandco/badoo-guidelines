@@ -15,43 +15,43 @@ export default function RainbowBackgroundFade({ left, children }) {
     let tl = gsap.timeline({ repeat: -1 })
 
     tl.to(ref.current, {
-      duration: 1,
-      delay: 1,
+      duration: 0.5,
+      delay: 0.5,
       css: {
         background: "#FF4D88",
       },
     })
       .to(ref.current, {
-        duration: 1,
-        delay: 1,
+        duration: 0.5,
+        delay: 0.5,
         css: {
           background: "#bca8f2",
         },
       })
       .to(ref.current, {
-        duration: 1,
-        delay: 1,
+        duration: 0.5,
+        delay: 0.5,
         css: {
           background: "#ffbbd0",
         },
       })
       .to(ref.current, {
-        duration: 1,
-        delay: 1,
+        duration: 0.5,
+        delay: 0.5,
         css: {
           background: "#ffa34e",
         },
       })
       .to(ref.current, {
-        duration: 1,
-        delay: 1,
+        duration: 0.5,
+        delay: 0.5,
         css: {
           background: "#6e3eff",
         },
       })
       .to(ref.current, {
-        duration: 1,
-        delay: 1,
+        duration: 0.5,
+        delay: 0.5,
         css: {
           background: "#370e7b",
         },

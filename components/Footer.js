@@ -14,6 +14,9 @@ const FooterStyles = styled.footer`
   @media (max-width: 480px) {
     padding: 20px;
   }
+  .footer-logos {
+    flex: 1;
+  }
   > *:not(:last-child) {
     margin-right: 20px;
     @media (max-width: 768px) {

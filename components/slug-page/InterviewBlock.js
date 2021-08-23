@@ -2,6 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { Image } from "react-datocms"
 import SanitisedHtml from "../SanitisedHtml"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { triggerEvent } from "dom-helpers"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const InterviewStyles = styled.div``
 
@@ -32,6 +37,14 @@ const InterviewHeroBlock = styled.div`
       padding: 50px 30px;
     }
 
+    h2 {
+      font-size: 36px;
+      line-height: 1.1;
+      font-feature-settings: unset !important;
+      @media (max-width: 500px) {
+        font-size: 26px;
+      }
+    }
     .interview-hero-buttons {
       button {
         width: 20px;
@@ -79,16 +92,44 @@ const InterviewContent = styled(SanitisedHtml)`
 `
 
 export default function InterviewBlock({ s }) {
+  const ref = React.useRef(null)
+  const contentRef = React.useRef(null)
+  const wrapperRef = React.useRef(null)
+
+  // React.useEffect(() => {
+  //   const y = contentRef.current.offsetHeight
+
+  //   console.log(y)
+  // })
+
+  // React.useEffect(() => {
+  //   setTimeout(() => {
+  //     let tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: ref.current,
+  //         scrub: true,
+  //         start: "top top",
+  //         endTrigger: contentRef.current,
+  //         end: "top top",
+  //         pin: true,
+  //       },
+  //     })
+  //     tl.to(contentRef.current, {
+  //       y: "-100vh",
+  //     })
+  //   }, 100)
+  // }, [])
+
   const [interviewIndex, setInterviewIndex] = React.useState(0)
   return (
     <>
-      <InterviewStyles className="champagne">
+      <InterviewStyles ref={wrapperRef} className="champagne">
         {s?.interviews.map((int, i) => {
           return (
             <>
               {interviewIndex === i && (
                 <>
-                  <InterviewHeroBlock className="blush">
+                  <InterviewHeroBlock ref={ref} className="blush">
                     <div className="interview-hero-section-left">
                       <h1>{int?.title}</h1>
                       <h2 className="bold">{int?.introduction}</h2>
@@ -117,7 +158,9 @@ export default function InterviewBlock({ s }) {
                       )}
                     </div>
                   </InterviewHeroBlock>
-                  <InterviewContent center dontAnimate html={int?.content} />
+                  <div ref={contentRef} class="champagne">
+                    <InterviewContent center dontAnimate html={int?.content} />
+                  </div>
                 </>
               )}
             </>

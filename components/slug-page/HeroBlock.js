@@ -38,6 +38,22 @@ const HeroStyles = styled.section`
     @media (max-width: 768px) {
       padding: 50px 30px;
     }
+    .hero-section-left-html {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        font-size: 36px;
+        line-height: 1.1;
+        font-feature-settings: unset !important;
+        @media (max-width: 500px) {
+          font-size: 26px;
+        }
+      }
+    }
   }
   .hero-section-right {
     position: relative;

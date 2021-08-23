@@ -23,7 +23,7 @@ const globalCss = css`
   body {
     font-family: "Noi", sans-serif;
     font-style: normal;
-    font-feature-settings: "ss01", "ss02", "ss03";
+
     font-variation-settings: "wght" 400;
     font-weight: normal;
 
@@ -54,6 +54,10 @@ const globalCss = css`
     z-index: 10;
   }
 
+  .not-creamy {
+    font-feature-settings: unset !important;
+  }
+
   h1,
   h2,
   h3,
@@ -63,6 +67,7 @@ const globalCss = css`
   .bold {
     font-variation-settings: "wght" 700;
     font-weight: normal;
+    font-feature-settings: "ss01", "ss02", "ss03";
   }
 
   h1,

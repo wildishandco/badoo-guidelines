@@ -35,10 +35,10 @@ export default function ColourHoverBlock({ s }) {
     const slides = sectionRef.current.querySelectorAll(".colour-hover-inner")
 
     container.addEventListener("mousemove", (e) => {
-      const x = e.offsetX
-      const width = container.offsetWidth
+      const y = e.offsetY
+      const height = container.offsetHeight
 
-      const percentage = x / width
+      const percentage = y / height
 
       const slidesNumber = Math.floor(percentage * slides.length)
 

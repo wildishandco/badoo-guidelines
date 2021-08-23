@@ -3,10 +3,10 @@ import Link from "next/link"
 
 const LogoStyles = styled.nav`
   position: fixed;
-  top: 18px;
-  left: 18px;
-  width: 55px;
-  height: 55px;
+  top: 17px;
+  left: 17px;
+  width: 48px;
+  /* height: 50px; */
   pointer-events: all;
   z-index: 999;
   a {
