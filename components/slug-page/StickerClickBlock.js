@@ -33,6 +33,7 @@ const StickerClickStyles = styled.section`
   cursor: none;
   font-size: 5rem;
   padding: 50px;
+  line-height: 1.3;
   @media (max-width: 900px) {
     font-size: 4rem;
   }

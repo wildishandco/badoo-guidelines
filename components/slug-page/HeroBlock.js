@@ -47,7 +47,7 @@ const HeroStyles = styled.section`
       h6,
       p {
         font-size: 36px;
-        line-height: 1.1;
+        line-height: 1.2;
         font-feature-settings: unset !important;
         @media (max-width: 500px) {
           font-size: 26px;
