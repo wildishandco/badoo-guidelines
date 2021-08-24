@@ -4,29 +4,28 @@
 	 viewBox="0 0 315.4 255" style="enable-background:new 0 0 315.4 255;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#372772;stroke:#FFE7BB;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st1{fill:#055499;stroke:#F8F5FF;stroke-width:9.4903;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10.0003;}
-	.st2{fill:#055499;stroke:#F8F5FF;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st3{fill:#055499;stroke:#F8F5FF;stroke-width:9.4894;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:9.9994;}
-	.st4{fill:#F8F5FF;}
+	.st1{fill:#370E7B;stroke:#FFE7BA;stroke-width:9.4906;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10.0006;}
+	.st2{fill:#370E7B;stroke:#FFE7BA;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:#370E7B;stroke:#FFE7BA;stroke-width:9.4896;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:9.9996;}
+	.st4{fill:#FFE7BA;}
 	.st5{fill:#372772;stroke:#FF4D88;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 </style>
 <g>
 	<path class="st0" d="M140.8,0"/>
 	<g>
 		
-			<ellipse transform="matrix(0.1687 -0.9857 0.9857 0.1687 -184.689 249.8176)" class="st1" cx="55.8" cy="234.4" rx="13.9" ry="46.8"/>
+			<ellipse transform="matrix(0.1687 -0.9857 0.9857 0.1687 -184.636 249.797)" class="st1" cx="55.8" cy="234.4" rx="13.9" ry="46.8"/>
 		<path class="st2" d="M56.2,231.7L56.2,231.7c-5.8-1-9.8-6.5-8.8-12.4l6.9-40c1-5.8,6.5-9.8,12.4-8.8l0,0c5.8,1,9.8,6.5,8.8,12.4
 			l-6.9,40C67.6,228.8,62.1,232.7,56.2,231.7z"/>
 		<path class="st2" d="M5.6,113.1l45.8,61.3c6.9,9.3,19.9,11.5,29.5,5.1l62.7-41.9"/>
 		
-			<ellipse transform="matrix(0.1687 -0.9857 0.9857 0.1687 -55.3977 174.7158)" class="st1" cx="75.9" cy="120.2" rx="22.8" ry="72.1"/>
+			<ellipse transform="matrix(0.1687 -0.9857 0.9857 0.1687 -55.3706 174.7055)" class="st1" cx="75.9" cy="120.2" rx="22.8" ry="72.1"/>
 		
-			<ellipse transform="matrix(0.8515 -0.5244 0.5244 0.8515 -68.2401 172.3493)" class="st3" cx="270.1" cy="206.6" rx="46.8" ry="13.9"/>
+			<ellipse transform="matrix(0.8515 -0.5244 0.5244 0.8515 -68.2395 172.321)" class="st3" cx="270.1" cy="206.6" rx="46.8" ry="13.9"/>
 		<path class="st2" d="M268.7,204.3L268.7,204.3c-5,3.1-11.6,1.5-14.8-3.5l-21.3-34.6c-3.1-5-1.5-11.6,3.5-14.8l0,0
 			c5-3.1,11.6-1.5,14.8,3.5l21.3,34.6C275.3,194.6,273.7,201.2,268.7,204.3z"/>
-		<path class="st2" d="M152.3,148.6l79,16.6c9,1.9,17.9-3.6,20.3-12.5l20.4-76.9"/>
-		
-			<ellipse transform="matrix(0.8515 -0.5244 0.5244 0.8515 -25.2659 126.0012)" class="st3" cx="209.8" cy="107.6" rx="72.1" ry="22.8"/>
+		<path class="st2" d="M152.3,148.6l79,16.6c9,1.9,17.9-3.6,20.3-12.5L272,75.8"/>
+		<ellipse transform="matrix(0.8515 -0.5244 0.5244 0.8515 -25.2657 126)" class="st3" cx="209.8" cy="107.6" rx="72.1" ry="22.8"/>
 		<path class="st4" d="M187.6,144l67.9-5.5l-3.6,13.6c-2.5,9.3-11.7,15-21.1,13L179,154.2L187.6,144z"/>
 		<path class="st4" d="M43.6,163.9l67.3-4.6l-30,20.1c-9.6,6.4-22.5,4.2-29.4-5L43.6,163.9z"/>
 		<path class="st5" d="M140.3,26.5"/>

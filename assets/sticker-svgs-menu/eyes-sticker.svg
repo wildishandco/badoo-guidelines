@@ -3,14 +3,14 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 189.8 177.3" style="enable-background:new 0 0 189.8 177.3;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#055499;stroke:#F8F5FF;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st1{fill:#F8F5FF;}
+	.st0{fill:#370E7B;stroke:#FFE7BA;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:#FFE7BA;}
 </style>
 <g>
 	<ellipse class="st0" cx="49.8" cy="88.6" rx="45.1" ry="83.9"/>
 	<ellipse class="st0" cx="140" cy="88.6" rx="45.1" ry="83.9"/>
 	<path class="st1" d="M37.8,88.6l8.7-21.5c-3.9-4-8.5-6.3-13.3-6.3c-14.6,0-26.4,20.7-26.4,46.3s11.8,46.3,26.4,46.3
-		c14.6,0,26.4-20.7,26.4-46.3c0-6.6-0.8-12.8-2.2-18.5H37.8z"/>
+		s26.4-20.7,26.4-46.3c0-6.6-0.8-12.8-2.2-18.5C57.4,88.6,37.8,88.6,37.8,88.6z"/>
 	<path class="st1" d="M130.7,88.6l7.9-19.3c-4.3-5.3-9.6-8.5-15.2-8.5c-14.6,0-26.4,20.7-26.4,46.3s11.8,46.3,26.4,46.3
 		s26.4-20.7,26.4-46.3c0-6.6-0.8-12.8-2.2-18.5L130.7,88.6L130.7,88.6z"/>
 </g>

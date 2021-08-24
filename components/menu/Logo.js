@@ -4,9 +4,9 @@ import Link from "next/link"
 const LogoStyles = styled.nav`
   position: fixed;
   top: 17px;
-  left: 17px;
+  left: 15px;
   width: 48px;
-  /* height: 50px; */
+  height: 50px;
   pointer-events: all;
   z-index: 999;
   a {

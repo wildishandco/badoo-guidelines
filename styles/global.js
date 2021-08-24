@@ -79,7 +79,8 @@ const globalCss = css`
     line-height: 1.3;
   }
 
-  h1 {
+  h1,
+  h2 {
     font-size: 60px;
     @media (max-width: 768px) {
       font-size: 48px;
@@ -89,7 +90,7 @@ const globalCss = css`
     }
   }
 
-  h2 {
+  h3 {
     font-size: 40px;
     @media (max-width: 768px) {
       font-size: 30px;
@@ -99,7 +100,6 @@ const globalCss = css`
     }
   }
 
-  h3,
   h4,
   h5,
   h6 {

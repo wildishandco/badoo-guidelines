@@ -3,9 +3,9 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 244.3 253.9" style="enable-background:new 0 0 244.3 253.9;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#055499;stroke:#F8F5FF;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st1{fill:none;stroke:#F8F5FF;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st2{fill:#F8F5FF;}
+	.st0{fill:#370E7B;stroke:#FFE7BA;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FFE7BA;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:#FFE7BA;}
 </style>
 <g>
 	<path class="st0" d="M72,241.5c6.6,5.7,15.6,8.1,24.3,7.6s17.1-3.9,24.3-8.8c22-14.9,32.8-44.6,25.3-70.2s-32.5-44.8-59.1-45.5
@@ -14,12 +14,11 @@
 		l0,0c-20.3,4.5-39.4,15.4-50.6,32.9s-14.9,39.6-10.3,59.9c2.7,12,8.5,23.5,17.4,31.9s21.4,13.4,33.6,12.2
 		c12.2-1.2,23.9-9.1,28.4-20.5"/>
 	<path class="st1" d="M84.3,129.9c30.8-19.3,58.1-57.2,70.1-91.4C152.6,63,158,88,169.8,109.6"/>
-	<path class="st0" d="M98.4,58.6c6.7-10.7,15.8-20.3,27.3-25.5c11.5-5.2,25.6-5.5,36.3,1.2c14,8.8,19,29.4,10.4,43.6
-		c-6.4,10.7-18.7,16.7-31,18.7c-12.3,2-24.9,0.4-37.3-0.9c-12.4-1.3-25.1-2.4-37.2,0.5c-5.7,1.4-12.4,3.4-16.9-0.4
-		c-2.7-2.3-3.6-6.1-3.2-9.5c0.4-3.5,1.8-6.7,3.3-9.9c4.9-10.6,9.7-21.1,14.6-31.7C70.1,32.9,75.8,20.8,86,13
-		c9.5-7.3,22.3-10,33.9-7.1s21.7,11.3,26.6,22.2"/>
+	<path class="st0" d="M98.4,58.6c6.7-10.7,15.8-20.3,27.3-25.5s25.6-5.5,36.3,1.2c14,8.8,19,29.4,10.4,43.6
+		c-6.4,10.7-18.7,16.7-31,18.7s-24.9,0.4-37.3-0.9S79,93.3,66.9,96.2c-5.7,1.4-12.4,3.4-16.9-0.4c-2.7-2.3-3.6-6.1-3.2-9.5
+		c0.4-3.5,1.8-6.7,3.3-9.9c4.9-10.6,9.7-21.1,14.6-31.7C70.1,32.9,75.8,20.8,86,13c9.5-7.3,22.3-10,33.9-7.1s21.7,11.3,26.6,22.2"/>
 	
-		<ellipse transform="matrix(0.5574 -0.8302 0.8302 0.5574 -103.381 104.9878)" class="st2" cx="46.8" cy="149.5" rx="15.8" ry="12.5"/>
+		<ellipse transform="matrix(0.5574 -0.8302 0.8302 0.5574 -103.3693 105.0221)" class="st2" cx="46.8" cy="149.5" rx="15.8" ry="12.5"/>
 	<ellipse class="st2" cx="136.6" cy="162.8" rx="11.7" ry="15.8"/>
 </g>
 </svg>

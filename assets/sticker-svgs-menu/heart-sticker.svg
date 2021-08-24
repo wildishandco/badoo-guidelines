@@ -3,13 +3,13 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 251.2 197" style="enable-background:new 0 0 251.2 197;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#055499;stroke:#F8F5FF;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st1{fill:#F8F5FF;}
+	.st0{fill:#370E7B;stroke:#FFE7BA;stroke-width:9.49;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:#FFE7BA;}
 </style>
 <g>
 	<path class="st0" d="M169.1,173.9c-23.8,24.4-63.1,24.4-86.9,0l-56.7-58.1l0,0C5,96.1-4.9,61.2,17.5,30.4
-		c28.9-39.7,85.8-29.9,108.1,6h0c22.3-35.9,79.2-45.8,108.1-6c22.4,30.8,12.5,65.7-8,85.5l0,0L169.1,173.9z"/>
+		c28.9-39.7,85.8-29.9,108.1,6l0,0c22.3-35.9,79.2-45.8,108.1-6c22.4,30.8,12.5,65.7-8,85.5l0,0L169.1,173.9z"/>
 	
-		<ellipse transform="matrix(0.4681 -0.8837 0.8837 0.4681 -20.2911 72.0326)" class="st1" cx="49.7" cy="52.9" rx="28.8" ry="18.7"/>
+		<ellipse transform="matrix(0.4681 -0.8837 0.8837 0.4681 -20.2776 72.0625)" class="st1" cx="49.7" cy="52.9" rx="28.8" ry="18.7"/>
 </g>
 </svg>
