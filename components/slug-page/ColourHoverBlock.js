@@ -37,9 +37,7 @@ export default function ColourHoverBlock({ s }) {
     container.addEventListener("mousemove", (e) => {
       const y = e.offsetY
       const height = container.offsetHeight
-
       const percentage = y / height
-
       const slidesNumber = Math.floor(percentage * slides.length)
 
       slides.forEach((s) => {
