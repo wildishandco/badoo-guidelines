@@ -145,7 +145,7 @@ export default function ColourHierachyBlock({ s }) {
   return (
     <>
       <ColourHierachyStyles ref={sectionRef} className="badoo-purple ref-test">
-        <SanitisedHtml className="colour-scroll-copy" html={s?.copy} />
+        <SanitisedHtml dontAnimate className="colour-scroll-copy" html={s?.copy} />
         <div
           ref={primaryRef}
           className="colour-scroll-block colour-scroll-block-primary"
