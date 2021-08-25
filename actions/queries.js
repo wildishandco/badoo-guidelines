@@ -39,6 +39,20 @@ export const FOOTER_QUERY = `
       link
       text
     }
+    socialLinks {
+      link
+      text
+    }
+    languageLinks {
+      link
+      text
+    }
+    generalLinks {
+      link
+      text
+    }
+    createAccountButtonLink
+    createAccountButtonText
   }
 `
 
@@ -65,6 +79,21 @@ content {
         _modelApiKey
         conversations
         copy
+      }
+            ... on AdvertScrollSectionRecord {
+        _modelApiKey
+        image {
+              responsiveImage(imgixParams: {auto: format, fit: crop}) {
+                src
+                title
+                alt
+                base64
+                bgColor
+                width
+                height
+                aspectRatio
+             }
+        }
       }
       ... on InterviewSectionRecord {
         _modelApiKey

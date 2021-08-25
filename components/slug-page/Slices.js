@@ -16,6 +16,7 @@ import InterviewBlock from "./InterviewBlock"
 import TypographyGridBlock from "./TypographyGridBlock"
 import StickerGridBlock from "./StickerGridBlock"
 import HomepageHeroBlock from "./HomepageHeroBlock"
+import AdvertScrollBlock from "./AdvertScrollBlock"
 
 const SliceWrapper = styled.div`
   @media (max-width: 768px) {
@@ -63,6 +64,8 @@ export default function Slices({ data, title, loader }) {
         return <StickerGridBlock key={i} s={s} />
       case "hompage_hero":
         return <HomepageHeroBlock key={i} i={i} s={s} loader={loader} />
+      case "advert_scroll_section":
+        return <AdvertScrollBlock key={i} s={s} />
       case "full_bleed_image":
         return (
           <Image key={i} data={s.image.responsiveImage} fadeInDuration={0} />

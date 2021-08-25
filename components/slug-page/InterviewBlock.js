@@ -4,11 +4,12 @@ import { Image } from "react-datocms"
 import SanitisedHtml from "../SanitisedHtml"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import { triggerEvent } from "dom-helpers"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const InterviewStyles = styled.div``
+const InterviewStyles = styled.div`
+  position: relative;
+`
 
 const InterviewHeroBlock = styled.div`
   display: flex;
@@ -71,6 +72,7 @@ const InterviewHeroBlock = styled.div`
 const InterviewContent = styled(SanitisedHtml)`
   padding: 100px 50px;
   text-align: center;
+  width: 100%;
   @media (max-width: 500px) {
     padding: 80px 30px;
   }
@@ -97,12 +99,6 @@ export default function InterviewBlock({ s }) {
   const wrapperRef = React.useRef(null)
 
   // React.useEffect(() => {
-  //   const y = contentRef.current.offsetHeight
-
-  //   console.log(y)
-  // })
-
-  // React.useEffect(() => {
   //   setTimeout(() => {
   //     let tl = gsap.timeline({
   //       scrollTrigger: {
@@ -111,11 +107,10 @@ export default function InterviewBlock({ s }) {
   //         start: "top top",
   //         endTrigger: contentRef.current,
   //         end: "top top",
-  //         pin: true,
   //       },
   //     })
-  //     tl.to(contentRef.current, {
-  //       y: "-100vh",
+  //     tl.to(ref.current, {
+  //       yPercent: 100,
   //     })
   //   }, 100)
   // }, [])
