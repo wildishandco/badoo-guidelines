@@ -35,7 +35,11 @@ export default function CookiesBanner() {
           We use cookies to make our site work better. This includes analytics
           cookies and advertising cookies. For more information, please check
           our{" "}
-          <a href="https://badoo.com/cookie-policy/" target="_blank">
+          <a
+            href="https://badoo.com/cookie-policy/"
+            target="_blank"
+            rel="noopener"
+          >
             Cookie Policy.
           </a>
         </>

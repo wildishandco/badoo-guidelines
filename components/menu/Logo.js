@@ -28,7 +28,7 @@ export default function Logo() {
     <>
       <LogoStyles>
         <Link href="/">
-          <a>
+          <a aria-label="home">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280.89 220.31">
               <g transform="translate(-716.604 -212.698)">
                 <path
