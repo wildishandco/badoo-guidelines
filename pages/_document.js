@@ -30,7 +30,14 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="manifest" href="/manifest.json" />
+          <link
+            rel="apple-touch-icon"
+            href="https://badoo.com/static/favicon.ico"
+          ></link>
+          <meta name="theme-color" content="#6e3eff" />
+        </Head>
         <body>
           <Main />
           <div className="portal" id="portal-side" />

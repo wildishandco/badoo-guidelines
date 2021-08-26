@@ -29,12 +29,6 @@ export default function MyApp({ Component, pageProps }) {
             type="image/ico"
             href="https://badoo.com/static/favicon.ico"
           />
-          <link rel="manifest" href="manifest.json" />
-          <link
-            rel="apple-touch-icon"
-            href="https://badoo.com/static/favicon.ico"
-          ></link>
-          <meta name="theme-color" content="#6e3eff" />
         </Head>
         <GlobalStyles />
         <CookiesBanner />
