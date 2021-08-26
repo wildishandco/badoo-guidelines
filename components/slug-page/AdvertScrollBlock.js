@@ -110,10 +110,11 @@ export default function AdvertScrollBlock({ s }) {
         },
       })
 
-      tl.to(".ad-scroll-inner", {
-        opacity: 1,
-        duration: 0.1,
-      })
+      tl
+        .to(".ad-scroll-inner", {
+          opacity: 1,
+          duration: 0.1,
+        })
         .fromTo(
           rightRef.current,
           { xPercent: 100 },

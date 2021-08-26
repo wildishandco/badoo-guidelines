@@ -3,7 +3,6 @@ import styled from "styled-components"
 import logo from "../assets/badoo-full-logo-blush.svg"
 import apple from "../assets/app-store.svg"
 import google from "../assets/google-play-badge.svg"
-import { ChevronDown } from "@styled-icons/fluentui-system-regular/ChevronDown"
 
 const FooterStyles = styled.footer`
   width: 100%;
@@ -77,8 +76,11 @@ const TopFooterStyles = styled.footer`
     padding: 50px 20px;
     font-size: 1rem;
     @media (max-width: 768px) {
-      padding: 60px 20px;
+      padding: 50px 60px;
       flex-direction: column;
+    }
+    @media (max-width: 480px) {
+      padding: 50px 20px;
     }
     .top-footer-div {
       flex: 1;
@@ -98,12 +100,14 @@ const TopFooterStyles = styled.footer`
       flex: 1.5;
     }
     .top-footer-account-buttons {
-      a {
+      .top-footer-pill {
         padding: 15px 20px;
         border: #fff 1px solid;
         border-radius: 30px;
         width: 200px;
         transition: 0.3s ease;
+        cursor: pointer;
+        text-align: left;
         .down-chevron {
           width: 20px;
           float: right;
@@ -127,6 +131,37 @@ const TopFooterStyles = styled.footer`
           color: #fff;
         }
       }
+      .top-footer-language-select {
+        position: relative;
+        .top-footer-language-tooltip {
+          position: absolute;
+          bottom: 120%;
+          left: 0;
+          background: #fff;
+          padding: 20px;
+          border-radius: 30px;
+          color: var(--violet);
+          columns: 4;
+          column-gap: 30px;
+          column-rule: solid 1px #ccc;
+          z-index: 2;
+          ::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            position: absolute;
+            bottom: -5px;
+            left: 30px;
+            transform: rotate(45deg);
+            z-index: -1;
+          }
+          a {
+            display: block;
+          }
+        }
+      }
     }
     .top-footer-app-buttons-flex {
       display: flex;
@@ -145,7 +180,7 @@ const TopFooterStyles = styled.footer`
 `
 
 export default function Footer({ footer, menu }) {
-  const [langClick, setLangClick] = React.useState(false)
+  const [showTooltip, setShowTooltip] = React.useState(false)
 
   return (
     <>
@@ -155,7 +190,7 @@ export default function Footer({ footer, menu }) {
             {footer?.createAccountButtonText && (
               <>
                 <a
-                  className="top-footer-create-button"
+                  className="top-footer-create-button top-footer-pill"
                   href={footer?.createAccountButtonLink}
                 >
                   {footer?.createAccountButtonText}
@@ -163,22 +198,31 @@ export default function Footer({ footer, menu }) {
                 <br />
               </>
             )}
-            <div className="top-footer-language-select">
-              {footer?.languageLinks?.map((l, i) => {
-                return (
-                  <React.Fragment key={i}>
-                    <a href={l?.link} target="_blank" rel="noopener">
-                      {l?.text}{" "}
-                      <span className="down-chevron">
-                        <svg viewBox="0 0 48 48" aria-hidden="true">
-                          <path d="M8.37 16.12a1.25 1.25 0 0 0 0 1.76l14.75 14.75c.48.5 1.28.5 1.76 0l14.75-14.75a1.25 1.25 0 0 0-1.76-1.76L24 29.98 10.13 16.12a1.25 1.25 0 0 0-1.76 0z"></path>
-                        </svg>
-                      </span>
-                    </a>
-                  </React.Fragment>
-                )
-              })}
-            </div>
+            {footer?.languageLinks[0] && (
+              <div className="top-footer-language-select">
+                <button
+                  href={footer?.languageLinks[0]?.link}
+                  target="_blank"
+                  rel="noopener"
+                  className="top-footer-pill"
+                  onClick={() => setShowTooltip(!showTooltip)}
+                >
+                  {footer?.languageLinks[0]?.text}{" "}
+                  <span className="down-chevron">
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                      <path d="M8.37 16.12a1.25 1.25 0 0 0 0 1.76l14.75 14.75c.48.5 1.28.5 1.76 0l14.75-14.75a1.25 1.25 0 0 0-1.76-1.76L24 29.98 10.13 16.12a1.25 1.25 0 0 0-1.76 0z"></path>
+                    </svg>
+                  </span>
+                </button>
+                {showTooltip && footer?.languageLinks[1] && (
+                  <div className="top-footer-language-tooltip">
+                    {footer?.languageLinks?.map((l, i) => {
+                      return <a href={l?.link}>{l?.text}</a>
+                    })}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           <div className="top-footer-middle-links">
             <div className="top-footer-general top-footer-div">

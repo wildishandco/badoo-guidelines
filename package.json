@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.14.6",
-    "@styled-icons/fluentui-system-regular": "^10.35.0",
     "babel-plugin-styled-components": "^1.13.2",
     "graphql": "^15.5.1",
     "graphql-request": "^3.4.0",
