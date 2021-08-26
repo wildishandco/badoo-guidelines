@@ -77,7 +77,7 @@ const TopFooterStyles = styled.footer`
     padding: 50px 20px;
     font-size: 1rem;
     @media (max-width: 768px) {
-      padding: 20px 60px;
+      padding: 60px 20px;
       flex-direction: column;
     }
     .top-footer-div {
