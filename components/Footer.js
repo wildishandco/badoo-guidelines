@@ -217,7 +217,11 @@ export default function Footer({ footer, menu }) {
                 {showTooltip && footer?.languageLinks[1] && (
                   <div className="top-footer-language-tooltip">
                     {footer?.languageLinks?.map((l, i) => {
-                      return <a href={l?.link}>{l?.text}</a>
+                      return (
+                        <a key={i} href={l?.link}>
+                          {l?.text}
+                        </a>
+                      )
                     })}
                   </div>
                 )}
