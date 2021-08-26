@@ -5,6 +5,9 @@ const StyledImage = styled(Image)`
   width: 500px;
   position: absolute !important;
   opacity: 0;
+  @media (max-width: 480px) {
+    width: 300px;
+  }
 `
 
 export default function RandomImage({ image, ...rest }) {

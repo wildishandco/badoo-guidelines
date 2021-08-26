@@ -202,8 +202,6 @@ export default function Footer({ footer, menu }) {
               <div className="top-footer-language-select">
                 <button
                   href={footer?.languageLinks[0]?.link}
-                  target="_blank"
-                  rel="noopener"
                   className="top-footer-pill"
                   onClick={() => setShowTooltip(!showTooltip)}
                 >
@@ -218,7 +216,12 @@ export default function Footer({ footer, menu }) {
                   <div className="top-footer-language-tooltip">
                     {footer?.languageLinks?.map((l, i) => {
                       return (
-                        <a key={i} href={l?.link}>
+                        <a
+                          key={i}
+                          href={l?.link}
+                          target="_blank"
+                          rel="noopener"
+                        >
                           {l?.text}
                         </a>
                       )
