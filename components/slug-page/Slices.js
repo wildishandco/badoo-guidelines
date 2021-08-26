@@ -42,7 +42,11 @@ export default function Slices({ data, title, loader }) {
         return <ColourHierachyBlock key={i} s={s} />
       case "grid_block":
         return (
-          <GridBlocks key={i} s={s?.gridBlock} left={s?.bigImageOnTheLeft} />
+          <GridBlocks
+            key={i}
+            s={s?.gridBlock}
+            left={s?.bigImageOnTheLeft.toString()}
+          />
         )
       case "sticker_click_section":
         return <StickerClickBlock key={i} s={s} />

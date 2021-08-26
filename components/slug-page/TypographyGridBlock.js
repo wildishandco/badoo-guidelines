@@ -35,7 +35,7 @@ export default function TypographyGridBlock({ s }) {
 
   return (
     <>
-      <GridThreeStyles order>
+      <GridThreeStyles>
         <div className="grid-block-three-right">
           <div className="grid-block-three-right-inner">
             <AlphabetStyles ref={ref} className="badoo-purple">

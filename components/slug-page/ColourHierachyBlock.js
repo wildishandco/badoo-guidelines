@@ -145,7 +145,11 @@ export default function ColourHierachyBlock({ s }) {
   return (
     <>
       <ColourHierachyStyles ref={sectionRef} className="badoo-purple ref-test">
-        <SanitisedHtml dontAnimate className="colour-scroll-copy" html={s?.copy} />
+        <SanitisedHtml
+          dontanimate="true"
+          className="colour-scroll-copy"
+          html={s?.copy}
+        />
         <div
           ref={primaryRef}
           className="colour-scroll-block colour-scroll-block-primary"
@@ -173,7 +177,11 @@ export default function ColourHierachyBlock({ s }) {
         ref={mobileRef}
         className="badoo-purple ref-test"
       >
-        <SanitisedHtml className="colour-scroll-copy-mobile" html={s?.copy} />
+        <SanitisedHtml
+          dontanimate="true"
+          className="colour-scroll-copy-mobile"
+          html={s?.copy}
+        />
         <div
           ref={primaryRef}
           className="colour-scroll-block colour-scroll-block-primary-mobile"

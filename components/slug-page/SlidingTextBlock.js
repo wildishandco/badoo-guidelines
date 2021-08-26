@@ -19,6 +19,7 @@ export const SlidingTextStyles = styled.div`
     line-height: 1.1;
     opacity: 0;
     padding: 0 30px;
+    text-align: center;
     @media (max-width: 768px) {
       font-size: 11vw;
     }

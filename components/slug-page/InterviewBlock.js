@@ -121,7 +121,7 @@ export default function InterviewBlock({ s }) {
       <InterviewStyles ref={wrapperRef} className="champagne">
         {s?.interviews.map((int, i) => {
           return (
-            <>
+            <React.Fragment key={i}>
               {interviewIndex === i && (
                 <>
                   <InterviewHeroBlock ref={ref} className="blush">
@@ -133,6 +133,7 @@ export default function InterviewBlock({ s }) {
                           s?.interviews.map((btn, i) => {
                             return (
                               <button
+                                key={i}
                                 onClick={() => setInterviewIndex(i)}
                                 style={{
                                   background:
@@ -153,12 +154,16 @@ export default function InterviewBlock({ s }) {
                       )}
                     </div>
                   </InterviewHeroBlock>
-                  <div ref={contentRef} class="champagne">
-                    <InterviewContent center dontAnimate html={int?.content} />
+                  <div ref={contentRef} className="champagne">
+                    <InterviewContent
+                      center
+                      dontanimate="true"
+                      html={int?.content}
+                    />
                   </div>
                 </>
               )}
-            </>
+            </React.Fragment>
           )
         })}
       </InterviewStyles>

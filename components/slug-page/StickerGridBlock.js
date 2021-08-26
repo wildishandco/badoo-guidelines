@@ -26,7 +26,7 @@ export default function StickerGridBlock({ s }) {
       <StickerGridStyles>
         {s?.stickers?.map((s, i) => {
           return (
-            <>
+            <React.Fragment key={i}>
               <div className="sticker-grid-wrapper">
                 {s?.responsiveImage && (
                   <Image
@@ -46,7 +46,7 @@ export default function StickerGridBlock({ s }) {
                   />
                 )}
               </div>
-            </>
+            </React.Fragment>
           )
         })}
       </StickerGridStyles>

@@ -225,23 +225,21 @@ export default function Menu({ menu }) {
             <div className="menu-left">
               {menu?.menuItems?.map((m, i) => {
                 return (
-                  <>
-                    <Link key={i} href={m?.slug}>
-                      <a
-                        className="bold menu-link"
-                        onMouseEnter={() => {
-                          setMenuWord(m?.slug)
-                          menuMediaItemIn(i)
-                        }}
-                        onMouseLeave={() => {
-                          setMenuWord("")
-                          setMenuIndex(-1)
-                        }}
-                      >
-                        {m?.title}
-                      </a>
-                    </Link>
-                  </>
+                  <Link key={i} href={m?.slug}>
+                    <a
+                      className="bold menu-link"
+                      onMouseEnter={() => {
+                        setMenuWord(m?.slug)
+                        menuMediaItemIn(i)
+                      }}
+                      onMouseLeave={() => {
+                        setMenuWord("")
+                        setMenuIndex(-1)
+                      }}
+                    >
+                      {m?.title}
+                    </a>
+                  </Link>
                 )
               })}
               <p className="menu-info">{menu?.menuInfo}</p>
@@ -272,7 +270,7 @@ export default function Menu({ menu }) {
                 if (i === menuIndex) {
                   if (m?.menuMedia[0]?._modelApiKey === "image") {
                     return (
-                      <div className="menu-media-container">
+                      <div key={i} className="menu-media-container">
                         {m?.menuMedia[0]?.image?.responsiveImage && (
                           <Image
                             data={m?.menuMedia[0]?.image?.responsiveImage}

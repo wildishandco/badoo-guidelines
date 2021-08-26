@@ -29,6 +29,7 @@ const HeroStyles = styled.section`
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
     align-items: end;
+    gap: 20px;
     @media (max-width: 900px) {
       width: 100%;
       flex: 1;
@@ -37,6 +38,9 @@ const HeroStyles = styled.section`
     }
     @media (max-width: 768px) {
       padding: 50px 30px;
+    }
+    @media (max-width: 480px) {
+      padding: 30px;
     }
     .hero-section-left-html {
       h1,
@@ -78,7 +82,7 @@ export default function HeroBlock({ s, title }) {
         <div className="hero-section-left">
           <h1 className="hero-section-title">{title}</h1>
           <SanitisedHtml
-            dontAnimate
+            dontanimate="true"
             className="hero-section-left-html"
             html={s?.introduction}
           />

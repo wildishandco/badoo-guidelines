@@ -51,11 +51,7 @@ export default function StickerBuild() {
       <StickerContainer>
         {Array.from({ length: 20 }, () =>
           stickers.map((s, i) => {
-            return (
-              <>
-                <RandomSticker key={i} src={s} className="random-sticker" />
-              </>
-            )
+            return <RandomSticker key={i} src={s} className="random-sticker" />
           })
         )}
       </StickerContainer>

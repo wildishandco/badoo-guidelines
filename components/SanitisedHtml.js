@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function SanitisedHtml({ center, html, dontAnimate, ...rest }) {
+export default function SanitisedHtml({ center, html, dontanimate, ...rest }) {
   const containerRef = React.useRef(null)
   const nullRef = React.useRef(null)
 
@@ -67,7 +67,7 @@ export default function SanitisedHtml({ center, html, dontAnimate, ...rest }) {
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "bottom bottom",
+          start: "center bottom",
         },
       })
 
@@ -81,8 +81,8 @@ export default function SanitisedHtml({ center, html, dontAnimate, ...rest }) {
 
   return (
     <div
-      dontAnimate={dontAnimate}
-      ref={dontAnimate ? nullRef : containerRef}
+      dontanimate={dontanimate}
+      ref={dontanimate ? nullRef : containerRef}
       className="sanitised-html"
       style={{ textAlign: center ? "center" : "left" }}
       {...rest}

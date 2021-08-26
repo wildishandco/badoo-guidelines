@@ -109,7 +109,7 @@ export default function VocabConvoBlock({ s }) {
           <div className="vocab-animation-wrapper">
             {s?.conversations.map((c, index) => {
               return (
-                <>
+                <React.Fragment key={index}>
                   <div className="vocab-animation-section-intro">
                     {c?.name && (
                       <h3
@@ -131,18 +131,16 @@ export default function VocabConvoBlock({ s }) {
                   >
                     {c?.conversation.map((c, i) => {
                       return (
-                        <>
-                          <p
-                            key={i}
-                            className={`vocab-animation-bubble vocab-animation-bubble-${index}`}
-                          >
-                            {c}
-                          </p>
-                        </>
+                        <p
+                          key={i}
+                          className={`vocab-animation-bubble vocab-animation-bubble-${index}`}
+                        >
+                          {c}
+                        </p>
                       )
                     })}
                   </div>
-                </>
+                </React.Fragment>
               )
             })}
           </div>

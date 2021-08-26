@@ -80,9 +80,6 @@ const TopFooterStyles = styled.footer`
       padding: 20px 60px;
       flex-direction: column;
     }
-    @media (max-width: 480px) {
-      padding: 20px;
-    }
     .top-footer-div {
       flex: 1;
       &:not(:last-child) {
@@ -108,13 +105,16 @@ const TopFooterStyles = styled.footer`
         width: 200px;
         transition: 0.3s ease;
         .down-chevron {
-          display: inline-block;
           width: 20px;
-          text-align: right;
+          float: right;
+          fill: #fff;
         }
         :hover {
           background: #fff;
           color: var(--violet);
+          .down-chevron {
+            fill: var(--violet);
+          }
         }
       }
       .top-footer-create-button {
@@ -166,16 +166,16 @@ export default function Footer({ footer, menu }) {
             <div className="top-footer-language-select">
               {footer?.languageLinks?.map((l, i) => {
                 return (
-                  <>
-                    <a key={i} href={l?.link} target="_blank" rel="noopener">
+                  <React.Fragment key={i}>
+                    <a href={l?.link} target="_blank" rel="noopener">
                       {l?.text}{" "}
                       <span className="down-chevron">
-                        <svg viewBox="0 0 48 48" aria-hidden="true" fill="#fff">
+                        <svg viewBox="0 0 48 48" aria-hidden="true">
                           <path d="M8.37 16.12a1.25 1.25 0 0 0 0 1.76l14.75 14.75c.48.5 1.28.5 1.76 0l14.75-14.75a1.25 1.25 0 0 0-1.76-1.76L24 29.98 10.13 16.12a1.25 1.25 0 0 0-1.76 0z"></path>
                         </svg>
                       </span>
                     </a>
-                  </>
+                  </React.Fragment>
                 )
               })}
             </div>
@@ -185,12 +185,12 @@ export default function Footer({ footer, menu }) {
               <p className="top-footer-title">General</p>
               {footer?.generalLinks?.map((l, i) => {
                 return (
-                  <>
-                    <a key={i} href={l?.link} target="_blank" rel="noopener">
+                  <React.Fragment key={i}>
+                    <a href={l?.link} target="_blank" rel="noopener">
                       {l?.text}
                     </a>
                     <br />
-                  </>
+                  </React.Fragment>
                 )
               })}
             </div>
@@ -198,12 +198,12 @@ export default function Footer({ footer, menu }) {
               <p className="top-footer-title">Follow</p>
               {footer?.socialLinks?.map((l, i) => {
                 return (
-                  <>
-                    <a key={i} href={l?.link} target="_blank" rel="noopener">
+                  <React.Fragment key={i}>
+                    <a href={l?.link} target="_blank" rel="noopener">
                       {l?.text}
                     </a>
                     <br />
-                  </>
+                  </React.Fragment>
                 )
               })}
             </div>

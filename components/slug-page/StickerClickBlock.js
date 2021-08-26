@@ -39,7 +39,6 @@ const StickerClickStyles = styled.section`
   }
   @media (max-width: 768px) {
     font-size: 2rem;
-    min-height: unset;
   }
   @media (max-width: 480px) {
     font-size: 1.6rem;
